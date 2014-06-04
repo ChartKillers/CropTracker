@@ -1,0 +1,18 @@
+{
+  "node": true,
+  "globals": {
+      "describe"   : false,
+      "it"         : false,
+      "to"         : false,
+      "ok"         : false,
+      "be"         : false,
+      "before"     : false,
+      "beforeEach" : false,
+      "after"      : false,
+      "afterEach"  : false,
+      "equal"      : false,
+      "google"     : false
+    },
+  "undef": false,
+  "unused": false
+}

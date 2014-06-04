@@ -5,14 +5,14 @@ Track the growing degree days of your crop.
 
 ## The Team
 
-Dennis Zdonov - JavaScript
-JW - UX
-Kevin Stephens - JavaScript
-Kyle Warbus - JavaScript
-??? - Ruby
-
-Mike Hair - Rice crop manager. Sills Farms, Inc. Rice advisor.
-Ed Sills - Owner. Sills Farms, Inc. Corn and Bean advisor.
+Dennis Zdonov - JavaScript  
+JW - UX  
+Kevin Stephens - JavaScript  
+Kyle Warbus - JavaScript  
+??? - Ruby  
+  
+Mike Hair - Rice crop manager. Sills Farms, Inc. Rice advisor.  
+Ed Sills - Owner. Sills Farms, Inc. Corn and Bean advisor.  
 
 ## Short Summary
 
@@ -78,7 +78,7 @@ Farmers want to know the cumulative growing degree days (GDD) of their crops fro
 
 ## Timeline
 
-MVP by Friday, June 13.
+MVP by Friday, June 13.  
 Additional features by Friday, June 27th.
 
 

@@ -8,7 +8,7 @@ Track the growing degree days of your crop.
 Dennis Zdonov - JavaScript  
 JW - UX  
 Kevin Stephens - JavaScript  
-Kyle Warbus - JavaScript  
+Kyle Warbis - JavaScript  
 ??? - Ruby  
   
 Mike Hair - Rice crop manager. Sills Farms, Inc. Rice advisor.  

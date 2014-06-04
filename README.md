@@ -9,7 +9,7 @@ Dennis Zdonov - JavaScript
 JW - UX  
 Kevin Stephens - JavaScript  
 Kyle Warbis - JavaScript  
-??? - Ruby  
+Steve Buckley - Ruby  
   
 Mike Hair - Rice crop manager. Sills Farms, Inc. Rice advisor.  
 Ed Sills - Owner. Sills Farms, Inc. Corn and Bean advisor.  

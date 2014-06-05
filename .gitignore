@@ -28,3 +28,4 @@ app/bower_components
 https
 test/front-end/test-suite.js
 dist
+db

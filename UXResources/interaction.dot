@@ -24,6 +24,7 @@ digraph {
   plantingDate;
   location;
     googleMaps;
+    zipCode;
   cropType;
   historicalData [style=filled, color=grey];
 
@@ -32,9 +33,11 @@ digraph {
   sortLocation;
   sortCrop;
   limitView;
+  changeUnits;
   milestones [style=filled, color=grey];
   recommendations [style=filled, color=grey];
   pastPlantings [style=filled, color=grey];
+  detailedMetrics [style=filled, color=grey];
 
 // Organization
   CropTracker -> login [label="Not logged in"];
@@ -46,10 +49,10 @@ digraph {
 
   myAccount -> newPlanting, editPlanting, historicalData;
   newPlanting -> plantingDate, location, cropType;
-  location -> googleMaps;
+  location -> googleMaps, zipCode;
 
   calculateGDD, myAccount -> viewData;
 
-  viewData -> sortDate, sortLocation, sortCrop, limitView, milestones, recommendations, pastPlantings;
+  viewData -> sortDate, sortLocation, sortCrop, limitView, changeUnits, milestones, recommendations, pastPlantings, detailedMetrics;
 
 }

@@ -9,7 +9,8 @@ Dennis Zdonov - JavaScript
 JW - UX  
 Kevin Stephens - JavaScript  
 Kyle Warbis - JavaScript  
-??? - Ruby  
+Steve Buckley - Ruby  
+Idil Jama - UX
   
 Mike Hair - Rice crop manager. Sills Farms, Inc. Rice advisor.  
 Ed Sills - Owner. Sills Farms, Inc. Corn and Bean advisor.  
@@ -17,6 +18,8 @@ Ed Sills - Owner. Sills Farms, Inc. Corn and Bean advisor.
 ## Short Summary
 
 This web app will allow farmers to enter in crop planting dates and then see a graph of cumulative growing degree days.
+
+_JW: graph may or may not be best way to do visualize - would like to explore graphic representations_
 
 ## Longer Summary
 
@@ -70,10 +73,17 @@ Farmers want to know the cumulative growing degree days (GDD) of their crops fro
 	- DECISIONS TO MAKE
 		- What's our MVP view of the data? I think it's a single page with all of the GDD chart for all crops entered in order of planting date.
 		- What other views do we want to see?
+			- _JW: limit/expand view by crop, location, date range? use checkboxes to select which crops to view? bar graph versus curve? other charts?_
 
 6. UX.
 	- DECISIONS TO MAKE
-		??
+		- What views will we make?
+			- **Login page**
+			- **Account management page**
+			- **GDD view page**
+		- Wireframes/Layout
+		- Style tile (fonts, colors, themes)
+		
 
 
 ## Timeline

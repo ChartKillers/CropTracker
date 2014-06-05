@@ -1,0 +1,55 @@
+digraph {
+
+  rankdir=LR;
+  {rank=same;myAccount login};
+  {rank=same;googleMaps viewData};
+
+  CropTracker;
+
+// Core features (customer facing)
+  login [label="Landing/Login", shape=box, style=filled, color=green];
+  myAccount [label="Account Settings", shape=box, style=filled, color=green];
+  viewData [label="Data Viz", shape=box, style=filled, color=green];
+
+// Core features (backend)
+  calculateGDD [shape=box, style=filled, color=blue];
+
+
+// Login specifics
+  newAccount;
+  recoverLogin;
+
+// Account specifics
+  newPlanting;
+  plantingDate;
+  location;
+    googleMaps;
+  cropType;
+  historicalData [style=filled, color=grey];
+
+// Data specifics
+  sortDate;
+  sortLocation;
+  sortCrop;
+  limitView;
+  milestones [style=filled, color=grey];
+  recommendations [style=filled, color=grey];
+  pastPlantings [style=filled, color=grey];
+
+// Organization
+  CropTracker -> login [label="Not logged in"];
+  CropTracker -> myAccount [label="Logged in"];
+
+  login -> newAccount, recoverLogin;
+
+  login -> myAccount;
+
+  myAccount -> newPlanting, editPlanting, historicalData;
+  newPlanting -> plantingDate, location, cropType;
+  location -> googleMaps;
+
+  calculateGDD, myAccount -> viewData;
+
+  viewData -> sortDate, sortLocation, sortCrop, limitView, milestones, recommendations, pastPlantings;
+
+}

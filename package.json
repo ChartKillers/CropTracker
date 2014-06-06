@@ -11,6 +11,7 @@
     "browserify": "^4.1.5",
     "chai": "^1.9.1",
     "debowerify": "^0.7.1",
+    "es6ify": "^1.1.0",
     "globule": "^0.2.0",
     "grunt-browserify": "^2.1.0",
     "grunt-casper": "^0.3.8",

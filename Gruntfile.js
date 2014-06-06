@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 dest: 'test/front-end/test-suite.js',
             },
             options: {
-                transform: ['debowerify', 'hbsfy'],
+                transform: [ 'debowerify', 'hbsfy'],
                 debug: true
             }
         },
@@ -58,7 +58,15 @@ module.exports = function (grunt) {
             testjs: {
                 files: '<%= browserify.test.src %>',
                 tasks: ['browserify:test']
+            },
+            express: {
+                files: ['server.js', 'api/*.js'],
+                tasks: ['express:dev'],
+                options: {
+                    spawn: false
+                }
             }
+
 
         },
 
@@ -91,7 +99,7 @@ module.exports = function (grunt) {
         }
 
     });
-
+    
     grunt.registerTask('server', ['jshint', 'express:dev', 'build', 'watch']);
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);

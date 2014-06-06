@@ -14,5 +14,6 @@
       "google"     : false
     },
   "undef": false,
-  "unused": false
+  "unused": false,
+  "esnext": true
 }

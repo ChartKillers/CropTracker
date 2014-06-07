@@ -1,6 +1,6 @@
 {
-  "name": "FlappyMappy",
-  "description": "Places along a route",
+  "name": "ChartKillers",
+  "description": "Charting GDD and other stuff",
   "version": "0.0.1",
   "dependencies": {
     "express": "^4.0",
@@ -10,6 +10,7 @@
   "devDependencies": {
     "browserify": "^4.1.5",
     "chai": "^1.9.1",
+    "d3": "^3.4.8",
     "debowerify": "^0.7.1",
     "es6ify": "^1.1.0",
     "globule": "^0.2.0",

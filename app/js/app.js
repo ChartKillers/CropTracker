@@ -11,21 +11,18 @@ function dailyTemps(){
 	
 	var highTemps = [];
 	var lowTemps = [];
-	var bs = [];
 	getDailyHighLow(235, 't', 'j', function (data){
 		var tempData = data;
 		for(var i = 0; i < tempData.length; i++){
 			highTemps.push({x: i, y: tempData[i].maxTempF});
 			lowTemps.push({x: i, y: tempData[i].minTempF});
-			bs.push({x: i, y: tempData[i].minTempF});
 		}
 
 		
 	});
 	return[
 	{values: highTemps, key: 'Daily High', color: '#ff7f0e'},
-	{values: lowTemps, key: 'Daily Low', color: 'steelblue'},
-	{values: bs, key: 'Daily Bs', color: 'red'}
+	{values: lowTemps, key: 'Daily Low', color: 'steelblue'}
 	];
 }
 
@@ -58,12 +55,11 @@ nv.addGraph(function() {
                 ;
 
   chart.xAxis     //Chart x-axis settings
-  .axisLabel('Days (month, day)');
-  //.tickFormat(d3.format(',r'));
+  .axisLabel('Days (month, day)')
+  .tickFormat(d3.format(',r'));
 
   chart.yAxis     //Chart y-axis settings
   .axisLabel('Temperature(F)');
-  //.tickFormat(d3.format('.20f'));
   /* Done setting the chart up? Time to render it!*/
   
   var myData = dailyTemps();   //You need data...
@@ -75,7 +71,7 @@ nv.addGraph(function() {
       .attr("width", 100)
       .datum(myData)         //Populate the <svg> element with chart data...
       .call(chart);          //Finally, render the chart!
-
+  chart.update();
   //Update the chart when window resizes.
   nv.utils.windowResize(function() { chart.update(); });
   return chart;

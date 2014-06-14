@@ -14,8 +14,8 @@ module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
 
 	//pass results to callback graph painter
 	callback([
-	{values: lowTemps, key: 'Daily Low', color: 'steelblue'},
-	{values: highTemps, key: 'Daily High', color: '#ff7f0e'}
+	{values: lowTemps, key: 'Daily Low', color: '#46bab4'},
+	{values: highTemps, key: 'Daily High', color: '#de3701'}
 	]);
 };
 

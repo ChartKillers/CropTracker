@@ -29,3 +29,4 @@ https
 test/front-end/test-suite.js
 dist
 db
+models/TempFarmer.js

@@ -1,8 +1,8 @@
-var $ = require('jquery');
+var makeDailyHighLowGraph = require('./makeDailyHighLowGraph');
 
-var dailyHighLowGraph = require('./dailyHighLowGraph.js');
+makeDailyHighLowGraph(235, 1-0-2014, 5-0-2014);
 
-dailyHighLowGraph();
+
 
 
 

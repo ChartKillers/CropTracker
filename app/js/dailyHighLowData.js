@@ -6,6 +6,7 @@ module.exports = function dailyTemps(){
 	var lowTemps = [];
 	getDailyHighLow(235, 't', 'j', function (data){
 		var tempData = data;
+		var now = new Date();
 		for(var i = 0; i < tempData.length; i++){
 			highTemps.push({x: i, y: tempData[i].maxTempF});
 			lowTemps.push({x: i, y: tempData[i].minTempF});

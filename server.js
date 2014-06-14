@@ -19,9 +19,6 @@ app.set('port', process.env.PORT || 3000);
 
 app.get('/api/v0_0_1/daily-high-low/:station_id/:start_date/:end_date',
 		tempHourStaRoutes.dailyHighLow);
-app.get('*', function(req, res){
-	res.send("FOUR OH FOUR, SHIT AINT HERE");
-});
 
 
 var server = http.createServer(app);

@@ -3,6 +3,8 @@ var dailyTempFunc = require('./dailyHighLowData.js');
 
 var dailyTemps = dailyTempFunc();
 
+
+//think about passing html id as param so it can be put wherever
 var dailyHighLowGraph = nv.addGraph(function() {
 		var chart = nv.models.lineChart()
                 .margin({left: 100, right: 100})  

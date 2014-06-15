@@ -3,9 +3,11 @@
   "description": "Charting GDD and other stuff",
   "version": "0.0.1",
   "dependencies": {
-    "express": "^4.0",
     "body-parser": "^1.2.0",
-    "mongoose": "^3.8"
+    "express": "^4.0",
+    "mongoose": "^3.8",
+    "socket.io": "^1.0.4",
+    "socket.io-client": "^1.0.4"
   },
   "devDependencies": {
     "browserify": "^4.1.5",

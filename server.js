@@ -23,6 +23,10 @@ app.set('port', process.env.PORT || 3000);
 
 require('./api/routes/tempHourStaRoutes')(app, socket);
 
+/*app.get('*', function(req, res){
+	res.send(404 + "Error");
+});*/
+
 var server = http.createServer(app);
 
 server.listen(app.get('port'), function () {

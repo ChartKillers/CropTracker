@@ -1,32 +1,26 @@
 var TempHourSta = require('../models/tempHourSta');
 var dateStringToDate = require('../../app/js/dateStringToDate');
 
-exports.dailyHighLow = function(req, res) {
+module.exports = function(app, socket) {
 
-	console.log(req.params.station_id);
-	console.log(req.params.start_date);
-	console.log(req.params.end_date);
+	app.get('/api/v0_0_1/daily-high-low/:station_id/:start_date/:end_date', function(req, res){
 
-	res.setHeader('Content-Type', 'application/json');
+		console.log(req.params.station_id);
 
-	var startDate = dateStringToDate(req.params.start_date);
-	var endDate = dateStringToDate(req.params.end_date);
+		res.setHeader('Content-Type', 'application/json');
 
-	if (!(startDate && endDate)){
-		res.end(500, {'error':'invalid date format'});
-	};
+		var startDate = dateStringToDate(req.params.start_date);
+		var endDate = dateStringToDate(req.params.end_date);
 
-	TempHourSta.find({
-		$and: [
-			 {date: { $gte: startDate, $lte: endDate }},
-			 {stationId: req.params.station_id}
-		]
-	}, null, {sort: {date: 1}}
-	, function(err, temps) {
-		if(err) {
-			res.send(500, {'error': err});
-			return false;
+		if (!(startDate && endDate)){
+			res.end(500, {'error':'invalid date format'});
 		};
-		res.send(temps);
+
+		var reqObj = {stationId: 235, startDate: startDate, endDate: endDate};
+
+		socket.emit('getDailyHighLow', reqObj, function (data) {
+		    res.send(data);
+		});
 	});
 };
+

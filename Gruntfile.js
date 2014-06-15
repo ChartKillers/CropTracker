@@ -59,8 +59,8 @@ module.exports = function (grunt) {
                 tasks: ['browserify:test']
             },
             express: {
-                files: ['server.js', 'api/**/*.js'],
-                tasks: ['express:dev'],
+                files: ['server.js', 'serverRailsTemp.js', 'api/**/*.js'],
+                tasks: ['express:tempService', 'express:dev'],
                 options: {
                     spawn: false
                 }
@@ -83,6 +83,12 @@ module.exports = function (grunt) {
                     script: 'server.js'
                 }
             },
+            tempService: {
+                options: {
+                    background: true,
+                    script: 'serverRailsTemp.js'
+                }
+            }
         },
 
         casper : {
@@ -99,7 +105,7 @@ module.exports = function (grunt) {
 
     });
     
-    grunt.registerTask('server', ['express:dev', 'build', 'watch']);
+    grunt.registerTask('server', ['express:tempService', 'express:dev', 'build', 'watch']);
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);
     grunt.registerTask('build', ['clean', 'browserify:standalone', 'copy']);

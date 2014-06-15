@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var tempHourStaSchema = new mongoose.Schema({
 	stationId: Number,
-	date: String,
+	date: Date,
 	maxTempF: Number,
 	minTempF: Number
 });

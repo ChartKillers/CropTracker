@@ -17,9 +17,10 @@ exports.dailyHighLow = function(req, res) {
 	};
 
 	TempHourSta.find({
-
-		stationId: req.params.station_id,
-
+		$and: [
+			 {date: { $gte: startDate, $lte: endDate }},
+			 {stationId: req.params.station_id}
+		]
 	}, null, {sort: {date: 1}}
 	, function(err, temps) {
 		if(err) {

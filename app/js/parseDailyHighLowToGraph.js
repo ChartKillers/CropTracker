@@ -7,7 +7,7 @@ module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
 	var highTemps = [];
 	var lowTemps = [];
 	var tempData = dailyHighLowJSON;
-		for(var i = 0; i < tempData.length; i++){
+		for(var i = tempData.length-1; i > tempData.length-6; i--){
 			highTemps.push({x: i, y: tempData[i].maxTempF});
 			lowTemps.push({x: i, y: tempData[i].minTempF});
 		}

@@ -1,3 +1,5 @@
+//ctr+f 'KYLE CHANGES' to find my changes
+
 (function(){
 
 var nv = window.nv || {};
@@ -8019,7 +8021,7 @@ nv.models.multiBarChart = function() {
       }
     , x //can be accessed via chart.xScale()
     , y //can be accessed via chart.yScale()
-    , state = { stacked: false }
+    , state = { stacked: true }  //KYLE CHANGES
     , defaultState = null
     , noData = "No Data Available."
     , dispatch = d3.dispatch('tooltipShow', 'tooltipHide', 'stateChange', 'changeState')
@@ -8028,7 +8030,7 @@ nv.models.multiBarChart = function() {
     ;
 
   multibar
-    .stacked(false)
+    .stacked(true)   //KYLE CHANGES
     ;
   xAxis
     .orient('bottom')

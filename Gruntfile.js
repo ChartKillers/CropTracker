@@ -14,7 +14,7 @@ module.exports = function (grunt) {
             all: {
                 expand: true,
                 cwd: 'app/',
-                src: ['*.css', '*.html', 'images/**/*', '!Gruntfile.js'],
+                src: ['*.css', '*.html','d3.js', 'nv.d3.js', 'images/**/*', '!Gruntfile.js'],
                 dest: 'dist/',
                 flatten: true,
                 filter: 'isFile'
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
         browserify: {
             standalone: {
                 src: 'app/js/*.js',
-                dest: 'dist/app.js'
+                dest: 'dist/client.js'
             },
             test: {
                 src: ['test/front-end/unit/**/*.js'],

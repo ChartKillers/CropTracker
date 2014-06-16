@@ -1,10 +1,10 @@
 /*temporary for blocking out wireframe*/
-header, article {
+.container {
   background-color: #EEEEEE;
   margin-top: 5px;
 }
 
-section {
+.columns {
   background-color: #DDDDDD;
 }
 

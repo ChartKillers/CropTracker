@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  //- the .xxxx after a tag is Jade shorthand for a class
+  header.container
+    figure.three.columns
+      a(href="#") Logo goes here
+    h1.ten.columns PAGE HEADER HERE
+    nav.three.columns
+      a(href="#") Settings
+  main
+    //- this section would collapse to a menu icon and expand when required
+    section.container
+      p.three.columns Options
+      nav.three.columns.offset-by-ten x-y of z pages
+
+      //- this form content needs to be decided
+      form.sixteen.columns
+        fieldset
+          legend Form label
+          label text
+          select
+          label more text
+          input(type="checkbox")
+    section.gdd.container
+      //- this article gets populated by the fields on the account - can be custom directive or something
+      article.fieldList.six.columns
+        //- this section is the Crop Type heading template
+        section.cropType.six.columns
+          h2 {{crop type}}
+        //- this sectinon is the Field Label template
+        section.field.five.columns.offset-by-one
+          h3 {{field name}}
+          p {{variety}}, planted on {{planting date}}
+          p {{gdd}}
+      article.graphs.ten.columns
+        //- this would get filled with the different graphs - can probably do ng-show for each section
+        figure.gdd-recent
+          figcaption GDD at {{local weather station}}
+          //- insert svg here
+        figure.gdd-crop
+          figcaption Crop Type GDD
+          //- insert appropriate svg here
+        figure.gdd-field
+          figcaption Cumulative GDD for {{field name}}
+          //- relevant svg goes here
+

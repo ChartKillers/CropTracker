@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<!-- Everything other than what is between the <form> tags is only for my test
+purposes ~Kyle -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script type="text/javascript" src="../newField/newFieldMod.js"></script>
+<body>
+	<form ng-app="formMod" ng-controller="newFieldCtrl" class="newField">
+		Field Name:
+		<input type="text" ng-model="field.name"/><br>
+		Crop Type:
+		<select ng-model="field.crop">
+			<option value="corn">Corn</option>
+	  	<option value="rice">Rice</option>
+	  	<option value="wheat">Wheat</option>
+	  	</select><br>
+	  Crop Variety:	
+		<input type="text" ng-model="field.variety"/><br>
+		Planting Date:
+		<input type="date" ng-model="field.date"/><br>
+		Station Number:
+		<input type="text" ng-model="field.station"/>
+	</form>
+	<pre> form = {{field | json}}</pre>
+	<pre> master = {{master | json}}</pre>
+
+
+</body>
+</html>
+
+

@@ -35,9 +35,16 @@ module.exports = function (grunt) {
                 debug: true
             }
         },
+        // simplemocha: {
+        //     all: 'test/front-end/test-suite.js'
+        // },
+
         simplemocha: {
-            all: 'test/front-end/test-suite.js'
-        },
+          options: {
+            ui: 'bdd'
+          },
+          all: { src: ['test/api/**/*.js'] }
+        },        
 
         watch: {
             options: {
@@ -109,5 +116,5 @@ module.exports = function (grunt) {
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);
     grunt.registerTask('build', ['clean', 'browserify:standalone', 'copy']);
-
+    grunt.registerTask('test:api', ['simplemocha']);
 };

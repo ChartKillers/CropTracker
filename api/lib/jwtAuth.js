@@ -9,7 +9,7 @@ module.exports = function (app) {
 
 	jwtauth.auth = function(req, res, next) {
 
-	
+
 		var token = req.headers.jwt_token;
 
 		if (token) {
@@ -17,17 +17,17 @@ module.exports = function (app) {
 				var decoded = jwt.decode(token, app.get('jwtTokenSecret'));
 
 
-				Farmer.findOne({'_id': decoded.iss}, function(err, user) {
+				Farmer.findOne({'_id': decoded.iss}, function(err, farmer) {
 					if(err) { return res.send(500, err); }
-					
+
 					if(new Date(decoded.expires).getTime() < new Date().getTime()){
-						{ 
-							return res.send(401, { 'msg': 'expired token'}); 
+						{
+							return res.send(401, { 'msg': 'expired token'});
 						}
 					};
 
-					//perform if token is accepted				
-					req.user = user;
+					//perform if token is accepted
+					req.farmer = farmer;
 					return next();
 
 				});

@@ -5,12 +5,13 @@ var chai = require('chai'),
 var app = require('../../server.js').app;
 
 
+var email;
+var password;
+var jwt_token;
+var adminToken;
 
 describe('Farmer account api', function () {
-    var email;
-    var password;
-    var jwt_token;
-    var adminToken;
+
 
     it('can succesfully create a new user', function (done) {
 
@@ -69,3 +70,50 @@ describe('Farmer account api', function () {
         });
     });
 });
+
+describe('Gdd transform api', function () {
+
+  it('farmer will add a new planting', function (done) {
+        superagent.post('http://localhost:3000/api/v0_0_1/farmers/plantings')
+                .send( {
+                    cropType : 'corn',
+                    cropVariety : 'popcorn',
+                    plantingDate : '10-4-2014',
+                    stationId : 235,
+                    gddParameters : {
+                      maxTempF : 86,
+                      minTempF : 50
+                    }
+                })
+                .set('jwt_token', jwt_token)
+                .end(function (err, res) {
+                  expect(res.status).to.equal(200);
+                  done();
+                })
+
+
+  })
+
+  it('farmer will add a second planting', function (done) {
+        superagent.post('http://localhost:3000/api/v0_0_1/farmers/plantings')
+                .send( {
+                    cropType : 'rice',
+                    cropVariety : 'megarice',
+                    plantingDate : '15-4-2014',
+                    stationId : 235,
+                    gddParameters : {
+                      maxTempF : 90,
+                      minTempF : 55
+                    }
+                })
+                .set('jwt_token', jwt_token)
+                .end(function (err, res) {
+                  expect(res.status).to.equal(200);
+                  done();
+                })
+
+
+  })
+
+}
+)

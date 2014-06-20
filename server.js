@@ -35,7 +35,7 @@ socket.on('connect', function(){
 //END SOCKET.IO
 
 
-//MONGO 
+//MONGO
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/users');
 
@@ -47,8 +47,9 @@ mongoose.connect('mongodb://localhost/users');
 require('./api/routes/tempHourStaRoutes')(app, socket);
 
     //NEW ACCOUNTS AND SIGN INS
-require('./api/routes/farmerRoutes')(app, passport);
+require('./api/routes/farmerRoutes')(app, passport, jwtauth.auth);
+
+require('./api/routes/transformDataRoute')(app, socket, jwtauth.auth);
 
 
 //END ROUTES
-

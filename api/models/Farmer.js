@@ -15,7 +15,6 @@ var farmerSchema = new Schema({
   },
 
   plantings: [{
-    _id: Number,
     cropType: String,
     cropVariety: String,
     plantingDate: Date,

@@ -23,8 +23,12 @@ purposes ~Kyle SO this will eventually be only 15 or so lines -->
 		Planting Date:
 		<input type="date" ng-model="field.date"/><br>
 		Station Number:
-		<input type="text" ng-model="field.station"/>
-		
+		<input type="text" ng-model="field.station"/><br>
+		GDD High(F):
+		<input type"text" ng-model="field.maxTempF"/>
+		GDD Low(F):
+		<input type="text" ng-model="field.minTempF"/><br>
+
 		<button ng-click="reset()">RESET</button>
 		<button ng-click="update(field)" ng-disabled="form.$invalid">SAVE</button>
 	</form>

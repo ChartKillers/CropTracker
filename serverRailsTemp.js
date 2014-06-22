@@ -4,8 +4,6 @@ var TempHourSta = require('./api/models/tempHourSta');
 
 var mongoose = require('mongoose');
 
-var tempHourStaRoutes = require('./api/routes/tempHourStaRoutes');
-
 mongoose.connect('mongodb://localhost/users');
 
 

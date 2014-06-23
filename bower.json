@@ -18,6 +18,14 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "underscore": "~1.6.0",
-    "hbs": "~0.8.0"
+    "hbs": "~0.8.0",
+    "angular": "~1.2.18",
+    "angular-route": "~1.2.18",
+    "angular-base64": "~2.0.2",
+    "angular-cookies": "~1.2.18",
+    "d3": "~3.4.8"
+  },
+  "resolutions": {
+    "d3": "~3.3.13"
   }
 }

@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    form
+      fieldset
+        legend Add a field
+
+        label(for="name") Field Name
+        input(type="text", name="name", id="name", required)
+
+        label(for="location") Nearest CIMIS Station
+        input(type="text", name="location", id="location", list="locations", required)
+        datalist(id="locations")
+          option(value="XX") XX
+          option(value="YY") YY
+          option(value="ZZ") ZZ
+
+        label(for="date") Planting Date
+        input(type="date", name="date", id="date", required)
+
+        label(for="crop") Crop Type
+        input(type="radio", name="crop", value="corn") Corn
+        input(type="radio", name="crop", value="rice") Rice
+        input(type="radio", name="crop", value="bean") Beans
+
+        label(for="variety") Crop Variety
+        input(type="text", name="variety", id="variety")
+
+        input(type="submit")

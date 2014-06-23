@@ -1,18 +1,20 @@
-@import vendors/vendors
-@import config
-@import reset
-@import typography
-@import buttons
-@import forms
-@import layouts/layouts
-@import ui_patterns/ui_patterns
-@import modules/modules
+@import "vendors/vendors";
+@import "config";
+@import "reset";
+@import "typography";
+@import "buttons";
+@import "forms";
+@import "layouts/layouts";
+@import "ui_patterns/ui_patterns";
+@import "modules/modules";
 
 /*temporary for blocking out wireframe*/
-.container
-  background-color: #EEEEEE
-  margin-top: 5px
+.container {
+  background-color: #EEEEEE;
+  margin-top: 5px;
+}
 
-.column, .columns
-  background-color: #DDDDDD
+.column, .columns {
+  background-color: #DDDDDD;
+}
 /*end wireframe code*/

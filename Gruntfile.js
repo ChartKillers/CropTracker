@@ -7,7 +7,18 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-
+        
+        sass: {
+            dist: {
+                files: {
+                    'dist/style.css': 'app/sass/application.scss'
+                },
+                options: {
+                  includePaths: [
+                  ]
+                }
+            }
+        },
         clean: ['dist'],
 
         copy: {
@@ -17,10 +28,9 @@ module.exports = function (grunt) {
                 expand: true, 
                 flatten: true, 
                 cwd:'app/', 
-                src:['*.css', '*.html', '!Gruntfile.js'], 
-                dest:'dist/'
+                src:['views/*'], 
+                dest:'dist/views'
                 },
-                
                 {   
                 expand:true, 
                 src:['vendors/*'],
@@ -124,6 +134,6 @@ module.exports = function (grunt) {
     grunt.registerTask('server', ['express:tempService', 'express:dev', 'build', 'watch']);
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);
-    grunt.registerTask('build', ['clean', 'browserify:standalone', 'copy']);
+    grunt.registerTask('build', ['clean', 'browserify:standalone', 'sass', 'copy']);
     grunt.registerTask('test:api', ['simplemocha']);
 };

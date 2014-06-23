@@ -1,15 +1,16 @@
 doctype html
-html(lang="en-us")
+html(lang="en-us" ng-app="mainMod")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="description", content="See the number of cumulative growing degree days(GDD) for your crops")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title CropTracker
-    link(rel='stylesheet', href='/css/main.css')
-  body
-    block content
+    link(rel='stylesheet', href='style.css')
+  body(ng-view, ng-controller="farmer")
 
-    script(src="d3.js")
-    script(src="nv.d3.js")
     script(src="client.js")
+    link(href="/vendors/nvd3.css" rel="stylesheet" type="text/css")
+    script(src="/vendors/d3.js")
+    script(src="/vendors/nv.d3.js")
+    script(src="/vendors/angular.min.js")

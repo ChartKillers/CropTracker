@@ -78,5 +78,5 @@ module.exports = function(app, passport, jwtauth) {
 
     app.get('/api/v0_0_1/farmers/data', jwtauth, function (req, res) {
       res.send(req.farmer);
-    };
+    });
 };

@@ -11,13 +11,22 @@ module.exports = function (grunt) {
         clean: ['dist'],
 
         copy: {
-            all: {
-                expand: true,
-                cwd: 'app/',
-                src: ['*.css', '*.html','d3.js', 'nv.d3.js', 'images/**/*', '!Gruntfile.js'],
+            main:{
+                files:[
+                {
+                expand: true, 
+                flatten: true, 
+                cwd:'app/', 
+                src:['*.css', '*.html', '!Gruntfile.js'], 
+                dest:'dist/'
+                },
+                
+                {   
+                expand:true, 
+                src:['vendors/*'],
                 dest: 'dist/',
-                flatten: true,
                 filter: 'isFile'
+                }]
             }
         },
 

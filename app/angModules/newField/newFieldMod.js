@@ -1,4 +1,4 @@
-var controllers = require('./newFieldCtrl.js');
+/*var controllers = require('./newFieldCtrl.js');
 
 
 var formMod = angular.module('formMod', []);
@@ -8,7 +8,7 @@ formMod.controller('newFieldCtrl',
 );
 
 
-module.exports = formMod;
+module.exports = formMod;*/
 
 
 //(function(){

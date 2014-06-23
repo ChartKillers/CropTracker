@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html>
+<html ng-app="mainMod">
 
   <head>
     <title>CROP TRACKER</title>
@@ -11,10 +11,12 @@
     <h1>HELLO WORLD</h1>
     <svg id="chart"></svg>
     
-    <link href="../vendors/nvd3.css" rel="stylesheet" type="text/css">
+    <link href="/vendors/nvd3.css" rel="stylesheet" type="text/css">
 
-    <script src="../vendors/d3.js"></script>
-		<script src="../vendors/nv.d3.js"></script>
-		<script src="client.js"></script>
+    <script src="/vendors/d3.js"></script>
+		<script src="/vendors/nv.d3.js"></script>
+		<script src="/vendors/angular.min.js"></script>
+    <script src="client.js"></script>
+    <div ng-view></div>
   </body>
 </html>

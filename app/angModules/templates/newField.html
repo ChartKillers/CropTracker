@@ -1,40 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
+<form ng-app="formMod" ng-controller="newFieldCtrl" class="newField" novalidate>
+	Field Name:
+	<input type="text" ng-model="field.name"/><br>
+	Crop Type:
+	<select ng-model="field.cropType">
+		<option value="corn">Corn</option>
+  	<option value="rice">Rice</option>
+  	<option value="wheat">Wheat</option>
+  	</select><br>
+  Crop Variety:	
+	<input type="text" ng-model="field.cropVariety"/><br>
+	Planting Date:
+	<input type="date" ng-model="field.plantingDate"/><br>
+	Station Number:
+	<input type="text" ng-model="field.stationId"/><br>
 
-<!-- Everything other than what is between the <form> tags is only for my test
-purposes ~Kyle SO this will eventually be only 15 or so lines -->
-<script type="text/javascript" src="../../../vendors/angular.min.js"></script>
-<script type="text/javascript" src="../newField/newFieldCtrl.js"></script>
-<body ng-app="formMod">
-	<form ng-controller="newFieldCtrl" class="newField" novalidate>
-		Field Name:
-		<input type="text" ng-model="field.name"/><br>
-		Crop Type:
-		<select ng-model="field.cropType">
-			<option value="corn">Corn</option>
-	  	<option value="rice">Rice</option>
-	  	<option value="wheat">Wheat</option>
-	  	</select><br>
-	  Crop Variety:	
-		<input type="text" ng-model="field.cropVariety"/><br>
-		Planting Date:
-		<input type="date" ng-model="field.plantingDate"/><br>
-		Station Number:
-		<input type="text" ng-model="field.stationId"/><br>
-
-		<button ng-click="reset()">RESET</button>
-		<button ng-click="update(field)">SAVE</button>
+	<button ng-click="reset()">RESET</button>
+	<button ng-click="update(field)">SAVE</button>
 
 
-		<pre> form = {{field | json}}</pre>
-		<pre> master = {{master | json}}</pre>
-	</form>
+	<pre> form = {{field | json}}</pre>
+	<pre> master = {{master | json}}</pre>
+</form>
 
 
-</body>
-</html>
+
+
 
 

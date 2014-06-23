@@ -4,10 +4,10 @@ form(ng-controller="SigninController")
     ul
       li
         label(for="username") E-mail address:
-        input(type="email", name="username", id="username", required, ng-model="user.email")
+        input#username(type="email", name="username", required, ng-model="user.email")
       li
         label(for="password") Password:
-        input(type="password", name="password", id="password", required, ng-model="user.password")
+        input#password(type="password", name="password", required, ng-model="user.password")
       li
-        input(type="submit", ng-click="signin()") Log In
+        input#submit(type="submit", ng-click="signin()") Log In
         a(href="#") or Sign Up

@@ -1,13 +1,15 @@
 form
   fieldset
     legend Sign Up
-
-    label(for="email") Username (E-mail address):
-    input(type="email", name="email", id="email", required)
-
-    label(for="password1") Password:
-    input(type="password", name="password1", id="password1", required)
-    label(for="password2") Re-enter your password:
-    input(type="password", name="password2", id="password2", required)
-
-    input(type="submit") Sign up
+    ul
+      li
+        label(for="email") Username (E-mail address):
+        input(type="email", name="email", id="email", required)
+      li
+        label(for="password1") Password:
+        input(type="password", name="password1", id="password1", required)
+      li
+        label(for="password2") Re-enter your password:
+        input(type="password", name="password2", id="password2", required)
+      li
+        input(type="submit") Sign up

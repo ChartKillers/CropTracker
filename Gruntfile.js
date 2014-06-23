@@ -7,7 +7,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-        
+
         sass: {
             dist: {
                 files: {
@@ -15,6 +15,8 @@ module.exports = function (grunt) {
                 },
                 options: {
                   includePaths: [
+                    require('node-bourbon').includePaths,
+                    'app/bower_components/color-scale'
                   ]
                 }
             }
@@ -25,14 +27,14 @@ module.exports = function (grunt) {
             main:{
                 files:[
                 {
-                expand: true, 
-                flatten: true, 
-                cwd:'app/', 
-                src:['views/*'], 
+                expand: true,
+                flatten: true,
+                cwd:'app/',
+                src:['views/*'],
                 dest:'dist/views'
                 },
-                {   
-                expand:true, 
+                {
+                expand:true,
                 src:['vendors/*'],
                 dest: 'dist/',
                 filter: 'isFile'
@@ -63,7 +65,7 @@ module.exports = function (grunt) {
             ui: 'bdd'
           },
           all: { src: ['test/api/**/*.js'] }
-        },        
+        },
 
         watch: {
             options: {
@@ -130,7 +132,7 @@ module.exports = function (grunt) {
         }
 
     });
-    
+
     grunt.registerTask('server', ['express:tempService', 'express:dev', 'build', 'watch']);
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);

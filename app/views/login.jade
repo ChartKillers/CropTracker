@@ -1,12 +1,13 @@
 form(ng-controller="SigninController")
   fieldset
     legend Log In
-
-    label(for="username") E-mail address:
-    input(type="email", name="username", id="username", required, ng-model="user.email")
-
-    label(for="password") Password:
-    input(type="password", name="password", id="password", required, ng-model="user.password")
-
-    input(type="submit", ng-click="signin()") Log In
-    a(href="#") or Sign Up
+    ul
+      li
+        label(for="username") E-mail address:
+        input(type="email", name="username", id="username", required, ng-model="user.email")
+      li
+        label(for="password") Password:
+        input(type="password", name="password", id="password", required, ng-model="user.password")
+      li
+        input(type="submit", ng-click="signin()") Log In
+        a(href="#") or Sign Up

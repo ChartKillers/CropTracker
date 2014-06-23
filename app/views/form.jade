@@ -1,32 +1,33 @@
-form
+form.eight.columns
   fieldset
     legend Add a field
     ul
       li
         label(for="name") Field Name
-        input(type="text", name="name", id="name", required)
+        input#name(type="text", name="name", required)
 
       li
         label(for="location") Nearest CIMIS Station
-        input(type="text", name="location", id="location", list="locations", required)
-        datalist(id="locations")
+        input#location(type="text", name="location", list="locations", required)
+        datalist#locations
           option(value="XX") XX
           option(value="YY") YY
           option(value="ZZ") ZZ
 
       li
         label(for="date") Planting Date
-        input(type="date", name="date", id="date", ng-model="field.plantingDate", required)
+        input#date(type="date", name="date", ng-model="field.plantingDate", required)
 
       li
         label(for="crop") Crop Type
-        input(type="radio", name="crop", value="corn") Corn
-        input(type="radio", name="crop", value="rice") Rice
-        input(type="radio", name="crop", value="bean") Beans
+        input#beans(type="radio", name="crop", value="beans") Beans
+        input#corn(type="radio", name="crop", value="corn") Corn
+        input#rice(type="radio", name="crop", value="rice") Rice
+        input#wheat(type="radio", name="crop", value="wheat") Wheat
 
       li
         label(for="variety") Crop Variety
-        input(type="text", name="variety", id="variety")
+        input#variety(type="text", name="variety")
 
       li
-        input(type="submit")
+        input#submit(type="submit")

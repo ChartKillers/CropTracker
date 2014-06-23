@@ -1,5 +1,5 @@
 
-(function(){
+/*(function(){
 	var formMod = angular.module('formMod', []);
 	
 	formMod.controller('newFieldCtrl', function($scope){
@@ -21,13 +21,13 @@
 	
 		$scope.reset();
 	});
-})();
+})();*/
 
 
 
 
 
-/*module.exports.newFieldCtrl = function($scope){
+module.exports.newFieldCtrl = function($scope){
 	$scope.master = {};
 
 	$scope.reset = function(){
@@ -45,4 +45,4 @@
 	};
 
 	$scope.reset();
-};*/
+};

@@ -3,6 +3,7 @@
   "description": "Charting GDD and other stuff",
   "version": "0.0.1",
   "dependencies": {
+    "angular": "^1.2.18",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.2.0",
     "consolidate": "^0.10.0",

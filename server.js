@@ -3,11 +3,12 @@ var http = require('http');
 var bodyparser = require('body-parser');
 var passport = require('passport');
 var consolidate = require('consolidate');
+var path = require('path');
 
 //SERVER SETUP
 var app = express();
 app.use(bodyparser.json());
-app.use(express.static(__dirname + '/dist'));
+
 app.set('port', process.env.PORT || 3000);
 
 var server = http.createServer(app);
@@ -15,6 +16,10 @@ server.listen(app.get('port'), function () {
     console.log('Server start on:' + app.get('port'));
 });
 //END SERVER SETUP
+
+//JADE RENDERING ENGINE
+app.set('views', path.join(__dirname, 'dist/views'));
+app.set('view engine','jade');
 
 //JWT AUTH
 var jwtauth = require('./api/lib/jwtAuth')(app);
@@ -51,5 +56,16 @@ require('./api/routes/farmerRoutes')(app, passport, jwtauth.auth);
 
 require('./api/routes/transformDataRoute')(app, socket, jwtauth.auth);
 
+
+    //JADE-ANGULAR PARTIAL ROUTES
+app.get('/views/:name', function(req, res) {
+    res.render(req.params.name, {});
+});
+
+app.get('/', function(req, res) {
+    res.render('layout', {});
+});
+
+app.use(express.static(__dirname + '/dist'));
 
 //END ROUTES

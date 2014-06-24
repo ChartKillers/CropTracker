@@ -18,6 +18,7 @@ var farmerSchema = new Schema({
     cropType: String,
     cropVariety: String,
     plantingDate: Date,
+    fieldName: String,
     stationId: Number,
     gddParameters: {
       maxTempF: Number,

@@ -45,7 +45,6 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/users');
 
 
-
 //ROUTES
 
     //DAILY MAX/MIN REQUESTS FROM CLIENT
@@ -55,6 +54,12 @@ require('./api/routes/tempHourStaRoutes')(app, socket);
 require('./api/routes/farmerRoutes')(app, passport, jwtauth.auth);
 
 require('./api/routes/transformDataRoute')(app, socket, jwtauth.auth);
+
+//require('./api/routes/transformDataRoute')(app, socket);
+console.log("required transformDataRoute file");
+
+    //GDD PARAMS
+require('./api/routes/gddParamsRoutes')(app, socket);
 
 
     //JADE-ANGULAR PARTIAL ROUTES

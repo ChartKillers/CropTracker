@@ -25,8 +25,5 @@
     "angular-base64": "~2.0.2",
     "angular-cookies": "~1.2.18",
     "d3": "~3.4.8"
-  },
-  "resolutions": {
-    "d3": "~3.3.13"
   }
 }

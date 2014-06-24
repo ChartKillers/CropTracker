@@ -7,17 +7,15 @@ block content
       ul
         li
           label(for="name") Field Name
-          input#name(type="text", name="name", required)
+          input#name(type="text", name="name", placeholder="Field name", required)
         li
           label(for="location") Nearest CIMIS Station
           input#location(type="text", name="location", placeholder="Nearest CIMIS Station", list="locations", required)
           datalist#locations
-            option(value="XX") XX
-            option(value="YY") YY
-            option(value="ZZ") ZZ
+            include station-list
         li
           label(for="date") Planting Date:
-          input#date(type="date", name="date", placeholder="Planting Date" ng-model="field.plantingDate", required)
+          input#date(type="date", name="date", ng-model="field.plantingDate", required)
         li
           input#beans(type="radio", name="crop", value="beans")
           label(for="beans") Beans
@@ -32,6 +30,6 @@ block content
           label(for="wheat") Wheat
         li
           label(for="variety") Crop Variety
-          input#variety(type="text", name="variety")
+          input#variety(type="text", name="variety" placeholder="Krispy King")
         li
-          input#submit(type="submit")
+          button#submit(type="submit") Submit

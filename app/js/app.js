@@ -50,8 +50,6 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
 
 mainApp.controller('SignupCtrl', [ '$scope', function ($scope) {
 
-    $scope.fuckyou = 'please';
-
 }]);
 
 mainApp.config(['$routeProvider',

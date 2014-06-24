@@ -70,7 +70,10 @@ module.exports = function(app, passport, jwtauth) {
     });
 
     app.get('/api/v0_0_1/farmers',
-        passport.authenticate('basic', {session: false}),
+        passport.authenticate('basic', {
+          session: false,
+          failureRedirect: '/#/login'
+        }),
         function (req, res) {
             res.json({'jwt_token': req.user.createToken(app)});
         }

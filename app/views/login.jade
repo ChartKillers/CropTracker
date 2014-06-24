@@ -1,13 +1,15 @@
-form(ng-controller="SigninController")
+form(novalidate)
   fieldset
     legend Log In
     ul
       li
         label(for="username") E-mail address:
-        input(type="email", name="username", id="username", required, ng-model="user.email")
+        input(type="email", name="username", id="username", ng-model="user.email",required)
       li
         label(for="password") Password:
-        input(type="password", name="password", id="password", required, ng-model="user.password")
+        input(type="password", name="password", id="password", ng-model="user.password", required)
       li
-        input(type="submit", ng-click="signin()") Log In
-        a(href="#") or Sign Up
+        button(type="submit", ng-click="signin()") Submit
+        a(href="/#/signup") or Sign Up
+      p {{user.email}}, {{user.password}}
+      p {{failedLogin}}

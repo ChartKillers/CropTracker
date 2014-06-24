@@ -92,6 +92,10 @@ module.exports = function (grunt) {
                 options: {
                     spawn: false
                 }
+            },
+            jade: {
+                files: ['app/views/*'],
+                tasks: ['copy']
             }
 
 

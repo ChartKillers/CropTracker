@@ -14,19 +14,28 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'base64', 'ngCookies']);
 mainApp.controller('LandingPageCtrl', [ '$scope', '$http', '$cookies',
     function ($scope, $http, $cookies) {
 
-  $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
-
 }]);
 
-mainApp.controller('DashboardCtrl', [ '$scope', '$http', '$cookies',
+mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     function ($scope, $http, $cookies) {
+
+  $scope.editPlantings = function() {
+    $scope.rightSideUrl = 'views/edit-plantings';
+  };
+
+  $scope.addPlanting = function() {
+    
+  };
+
+  $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
+  $scope.rightSideUrl = 'views/dashboard';
 
   $http({
     method: 'GET',
     url: '/api/v0_0_1/farmers/data'
   }).success(function(data) {
-    console.log(data);
     $scope.farmer = data;
+    console.log($scope);
   });
 
 }]);
@@ -42,8 +51,6 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
 
     $scope.signin = function () {
 
-        $scope.failedLogin = '';
-
         $http.defaults.headers.common['Authorization'] = 'Basic '
             + $base64.encode($scope.user.email + ':' + $scope.user.password);
 
@@ -53,7 +60,7 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
         }).success(function (data) {
             if (data.jwt_token){
               $cookies.jwt_token = data.jwt_token;
-              $location.path('/dashboard');
+              $location.path('/field-list');
             } else {
               $scope.failedLogin = 'Incorrect username/password combination';
               //$scope.user.email = null;
@@ -86,10 +93,14 @@ mainApp.config(['$routeProvider',
         templateUrl: '/views/signup',
         controller: 'SignupCtrl'
       })
-      .when('/dashboard', {
-        templateUrl: '/views/dashboard',
-        controller: 'DashboardCtrl'
+      .when('/field-list', {
+        templateUrl: '/views/field-list',
+        controller: 'FieldListCtrl'
       });
+      // .when('/add-planting', {
+      //   templateUrl: '/view/add-planting',
+      //   controller: 'DashboardCtrl'
+      // });
   }
 ]);
 

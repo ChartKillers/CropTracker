@@ -1,0 +1,23 @@
+fieldset
+  legend Add a field
+  ul
+    li
+      label(for="name") Field Name
+      input#name(ng-model="planting.fieldName", type="text", name="name", placeholder="Field name", required)
+    li
+      label(for="location") Nearest CIMIS Station
+      input#location(ng-model="planting.stationId", type="text", name="location", placeholder="Nearest CIMIS Station", list="locations", required)
+      //- datalist#locations(ng-repeat="station in stations")
+      //-   option(value="{{station.name}}")
+    li
+      label(for="date") Planting Date:
+      input#date(ng-model="plantingDate", type="date", name="date", required)
+    li
+      label(for="crop-type") Crop Type
+      select#crop-type(ng-model="planting.cropType", name="crop-type", placeholder="Crop Type", list="crop-types", required)
+        option(ng-repeat="crop in cropTypes", value="{{crop.cropType}}"){{crop.cropType | uppercase }}
+    li
+      label(for="variety") Crop Variety
+      input#variety(ng-model="cropVariety" type="text", name="variety", placeholder="Variety")
+    li
+      button#submit(ng-click="addPlanting()" type="submit") Submit

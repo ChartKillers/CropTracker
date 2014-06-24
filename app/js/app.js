@@ -19,12 +19,30 @@ mainApp.controller('LandingPageCtrl', [ '$scope', '$http', '$cookies',
 mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     function ($scope, $http, $cookies) {
 
-  $scope.editPlantings = function() {
-    $scope.rightSideUrl = 'views/edit-plantings';
+  // $scope.getStations = function () {
+
+  //   $http({
+  //     method: 'GET',
+  //     url: ''
+  //   }).success(function (data) {
+  //     $scope.stations = data;
+  //   });
+
+  // };
+
+  $scope.getDefaultCrops = function () {
+    $http({
+      method: 'GET',
+      url: '/api/v0_0_1/gddParams'
+    }).success(function (data) {
+      $scope.cropTypes = data;
+      console.log($scope.cropTypes);
+    });
   };
 
-  $scope.addPlanting = function() {
-    
+  $scope.addPlantings = function() {
+    $scope.rightSideUrl = 'views/add-plantings';
+    $scope.getDefaultCrops();
   };
 
   $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;

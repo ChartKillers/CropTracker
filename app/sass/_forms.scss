@@ -38,6 +38,11 @@ input[type="email"] {
   @extend %default-inputs;
 }
 
+input[type="date"] {
+  @extend %display-block;
+  @extend %default-inputs;
+}
+
 textarea {
   @extend %display-block;
   @extend %default-inputs;

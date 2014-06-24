@@ -7,5 +7,6 @@ html(lang="en-us" ng-app="mainApp")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title CropTracker
     link(rel='stylesheet', href='style.css')
-    body(ng-view)
+    body
+      main.container(ng-view)
       script(src="client.js")

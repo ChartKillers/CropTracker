@@ -35,6 +35,10 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
             '$base64', '$cookies', '$location', 
             function ($scope, $http, $base64, $cookies, $location) {
 
+    $scope.user = {};
+    $scope.user.email = 'admin@gmail.com',
+    $scope.user.password = 'password'
+    
 
     $scope.signin = function () {
 
@@ -52,8 +56,8 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
               $location.path('/dashboard');
             } else {
               $scope.failedLogin = 'Incorrect username/password combination';
-              $scope.user.email = null;
-              $scope.user.password = null;
+              //$scope.user.email = null;
+              //$scope.user.password = null;
             }
         }).error(function (data) {
             console.log('err', data);

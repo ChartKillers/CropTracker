@@ -12,6 +12,7 @@ module.exports = function(app, passport, jwtauth) {
         cropType : req.body.cropType,
         cropVariety : req.body.cropVariety,
         plantingDate : dateStringToDate(req.body.plantingDate),
+        fieldName : req.body.fieldName,
         stationId : req.body.stationId,
         gddParameters : {
           maxTempF : req.body.maxTempF,
@@ -82,4 +83,27 @@ module.exports = function(app, passport, jwtauth) {
     app.get('/api/v0_0_1/farmers/data', jwtauth, function (req, res) {
       res.send(req.farmer);
     });
-};
+
+    //GET route for getting all plantings documents for authed farmer
+    app.get('/api/v0_0_1/farmers/plantings', jwtauth, function(req, res){
+
+      res.send(req.farmer.plantings);
+
+      // Farmer.find({}, function (err, farmer) {
+      //
+      //     if(err) { return res.send(500, err); }
+      //
+      //     if(!farmer) {
+      //         res.send(401, {'msg': 'This farmer does not exist'});
+      //         return false;
+      //     }
+      //
+      //     console.log(farmer);
+      //     console.log(farmer.plantings);
+      //     console.log(req.farmer.plantings);
+      //     console.log(farmer.basic);
+      //     res.send(farmer.plantings);
+      // });
+    });
+
+}

@@ -9,6 +9,8 @@ var email;
 var password;
 var jwt_token;
 var adminToken;
+var planting;
+var plantingNum = Math.round(Math.random()*1000);
 
 describe('Farmer account api', function () {
 
@@ -17,6 +19,8 @@ describe('Farmer account api', function () {
 
         email = 'kevinmstephens' + parseInt(Math.random()*100) + '@gmail.com';
         password = 'pwpwpw' + parseInt(Math.random()*100) + '!';
+        console.log(email);
+        console.log(password);
 
         superagent.post('http://localhost:3000/api/v0_0_1/farmers')
                 .send({
@@ -79,20 +83,19 @@ describe('Gdd transform api', function () {
                     cropType : 'corn',
                     cropVariety : 'popcorn',
                     plantingDate : '10-4-2014',
+                    fieldName : 'magic field 7',
                     stationId : 235,
-                    gddParameters : {
-                      maxTempF : 86,
-                      minTempF : 50
-                    }
+                    maxTempF : 86,
+                    minTempF : 50
                 })
                 .set('jwt_token', jwt_token)
                 .end(function (err, res) {
                   expect(res.status).to.equal(200);
                   done();
-                })
+                });
 
 
-  })
+  });
 
   it('farmer will add a second planting', function (done) {
         superagent.post('http://localhost:3000/api/v0_0_1/farmers/plantings')
@@ -100,20 +103,52 @@ describe('Gdd transform api', function () {
                     cropType : 'rice',
                     cropVariety : 'megarice',
                     plantingDate : '15-4-2014',
+                    fieldName : 'magic field 13',
                     stationId : 235,
-                    gddParameters : {
-                      maxTempF : 90,
-                      minTempF : 55
-                    }
+                    maxTempF : 90,
+                    minTempF : 55
                 })
                 .set('jwt_token', jwt_token)
                 .end(function (err, res) {
                   expect(res.status).to.equal(200);
                   done();
-                })
+                });
 
 
-  })
+  });
+
+
+  it('can successfully retrieve platings for a specific farmer', function (done){
+      superagent.get('http://localhost:3000/api/v0_0_1/farmers/plantings')
+              .auth(email, password)
+              .set('jwt_token', jwt_token)
+              .end(function (err, res) {
+                expect(res.status).to.equal(200);
+                planting = res.body;
+                console.log(planting[1]._id);
+                console.log(planting[1]);
+                done();
+              });
+  });
+
+
+  it('can successfully retrieve gdd transform for a specific farmer', function (done){
+      var PID = planting[1]._id;
+      var getURL = 'http://localhost:3000/api/v0_0_1/daily-cum-gdd/' + PID;
+
+      console.log(getURL);
+
+      superagent.get(getURL)
+              .auth(email, password)
+              .set('jwt_token', jwt_token)
+              .end(function (err, res) {
+                expect(res.status).to.equal(200);
+                console.log(res.body);
+                done();
+              });
+  });
+
+
 
 }
-)
+);

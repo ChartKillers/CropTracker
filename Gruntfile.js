@@ -8,16 +8,37 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        sass: {
+            dist: {
+                files: {
+                    'dist/style.css': 'app/sass/application.scss'
+                },
+                options: {
+                  includePaths: [
+                    require('node-bourbon').includePaths,
+                    'app/bower_components/color-scale'
+                  ]
+                }
+            }
+        },
         clean: ['dist'],
 
         copy: {
-            all: {
+            main:{
+                files:[
+                {
                 expand: true,
-                cwd: 'app/',
-                src: ['*.css', '*.html','d3.js', 'nv.d3.js', 'images/**/*', '!Gruntfile.js'],
-                dest: 'dist/',
                 flatten: true,
+                cwd:'app/',
+                src:['views/*'],
+                dest:'dist/views'
+                },
+                {
+                expand:true,
+                src:['vendors/*'],
+                dest: 'dist/',
                 filter: 'isFile'
+                }]
             }
         },
 
@@ -44,7 +65,7 @@ module.exports = function (grunt) {
             ui: 'bdd'
           },
           all: { src: ['test/api/**/*.js'] }
-        },        
+        },
 
         watch: {
             options: {
@@ -111,10 +132,10 @@ module.exports = function (grunt) {
         }
 
     });
-    
+
     grunt.registerTask('server', ['express:tempService', 'express:dev', 'build', 'watch']);
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);
-    grunt.registerTask('build', ['clean', 'browserify:standalone', 'copy']);
+    grunt.registerTask('build', ['clean', 'browserify:standalone', 'sass', 'copy']);
     grunt.registerTask('test:api', ['simplemocha']);
 };

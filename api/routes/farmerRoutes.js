@@ -103,5 +103,4 @@ module.exports = function(app, passport, jwtauth) {
       // });
     });
 
-
-};
+}

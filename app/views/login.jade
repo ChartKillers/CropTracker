@@ -1,0 +1,13 @@
+form.eight.columns(ng-controller="SigninController")
+  fieldset
+    legend Log In
+    ul
+      li
+        label(for="username") E-mail address:
+        input#username(type="email", name="username", required, ng-model="user.email")
+      li
+        label(for="password") Password:
+        input#password(type="password", name="password", required, ng-model="user.password")
+      li
+        input#submit(type="submit", ng-click="signin()") Log In
+        a(href="#") or Sign Up

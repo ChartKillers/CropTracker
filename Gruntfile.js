@@ -96,6 +96,10 @@ module.exports = function (grunt) {
             jade: {
                 files: ['app/views/*'],
                 tasks: ['copy']
+            },
+            sass:{
+                files:['app/sass/*'],
+                tasks:['copy']
             }
 
 

@@ -1,33 +1,37 @@
-form.eight.columns
-  fieldset
-    legend Add a field
-    ul
-      li
-        label(for="name") Field Name
-        input#name(type="text", name="name", required)
+extends layout
 
-      li
-        label(for="location") Nearest CIMIS Station
-        input#location(type="text", name="location", list="locations", required)
-        datalist#locations
-          option(value="XX") XX
-          option(value="YY") YY
-          option(value="ZZ") ZZ
-
-      li
-        label(for="date") Planting Date
-        input#date(type="date", name="date", ng-model="field.plantingDate", required)
-
-      li
-        label(for="crop") Crop Type
-        input#beans(type="radio", name="crop", value="beans") Beans
-        input#corn(type="radio", name="crop", value="corn") Corn
-        input#rice(type="radio", name="crop", value="rice") Rice
-        input#wheat(type="radio", name="crop", value="wheat") Wheat
-
-      li
-        label(for="variety") Crop Variety
-        input#variety(type="text", name="variety")
-
-      li
-        input#submit(type="submit")
+block content
+  form.eight.columns.form
+    fieldset
+      legend Add a field
+      ul
+        li
+          label(for="name") Field Name
+          input#name(type="text", name="name", required)
+        li
+          label(for="location") Nearest CIMIS Station
+          input#location(type="text", name="location", placeholder="Nearest CIMIS Station", list="locations", required)
+          datalist#locations
+            option(value="XX") XX
+            option(value="YY") YY
+            option(value="ZZ") ZZ
+        li
+          label(for="date") Planting Date:
+          input#date(type="date", name="date", placeholder="Planting Date" ng-model="field.plantingDate", required)
+        li
+          input#beans(type="radio", name="crop", value="beans")
+          label(for="beans") Beans
+        li
+          input#corn(type="radio", name="crop", value="corn")
+          label(for="corn") Corn
+        li
+          input#rice(type="radio", name="crop", value="rice")
+          label(for="rice") Rice
+        li
+          input#wheat(type="radio", name="crop", value="wheat")
+          label(for="wheat") Wheat
+        li
+          label(for="variety") Crop Variety
+          input#variety(type="text", name="variety")
+        li
+          input#submit(type="submit")

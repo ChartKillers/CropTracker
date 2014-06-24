@@ -1,15 +1,16 @@
 form.eight.columns
   fieldset
-    legend Sign Up {{fuckyou}}
+    legend Sign Up
     ul
       li
         label(for="email") Username (E-mail address):
-        input#email(type="email", name="email", id="email", required)
+        input(type="email", name="email", id="email", required)
       li
         label(for="password1") Password:
-        input#password1(type="password", name="password1", required)
+        input(type="password", name="password1", required)
       li
         label(for="password2") Re-enter your password:
-        input#password2(type="password", name="password2", required)
+        input(type="password", name="password2", required)
       li
         input(type="submit")
+  a(href='/#/login') Sign In!

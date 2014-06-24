@@ -11,10 +11,23 @@ require('angular-base64');
 
 var mainApp = angular.module('mainApp', ['ngRoute', 'base64', 'ngCookies']);
 
-mainApp.controller('LandingPageCtrl', [ '$scope' , function ($scope) {
+mainApp.controller('LandingPageCtrl', [ '$scope', '$http', '$cookies',
+    function ($scope, $http, $cookies) {
 
+  $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
 
-    $scope.name = 'Kevin';
+}]);
+
+mainApp.controller('DashboardCtrl', [ '$scope', '$http', '$cookies',
+    function ($scope, $http, $cookies) {
+
+  $http({
+    method: 'GET',
+    url: '/api/v0_0_1/farmers/data'
+  }).success(function(data) {
+    console.log(data);
+    $scope.farmer = data;
+  });
 
 }]);
 
@@ -25,6 +38,8 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
 
     $scope.signin = function () {
 
+        $scope.failedLogin = '';
+
         $http.defaults.headers.common['Authorization'] = 'Basic '
             + $base64.encode($scope.user.email + ':' + $scope.user.password);
 
@@ -33,7 +48,7 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
             url: '/api/v0_0_1/farmers'
         }).success(function (data) {
             if (data.jwt_token){
-              $cookies.jwt = data.jwt_token;
+              $cookies.jwt_token = data.jwt_token;
               $location.path('/dashboard');
             } else {
               $scope.failedLogin = 'Incorrect username/password combination';
@@ -49,8 +64,6 @@ mainApp.controller('LoginCtrl', [ '$scope', '$http',
 }]);
 
 mainApp.controller('SignupCtrl', [ '$scope', function ($scope) {
-
-    $scope.fuckyou = 'please';
 
 }]);
 
@@ -69,8 +82,8 @@ mainApp.config(['$routeProvider',
         templateUrl: '/views/signup',
         controller: 'SignupCtrl'
       })
-      .when('/graph', {
-        templateUrl: '/view/dashboard',
+      .when('/dashboard', {
+        templateUrl: '/views/dashboard',
         controller: 'DashboardCtrl'
       });
   }

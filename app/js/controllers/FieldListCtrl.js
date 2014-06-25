@@ -4,6 +4,8 @@ module.exports = function (mainApp){
 
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     function ($scope, $http, $cookies) {
+    $scope.rightSideUrl = 'views/dashboard';
+     
 
     $scope.activeStations = [
       {county: 'Contra Costa', id: 10, name: 'Brentwood'},
@@ -13,7 +15,7 @@ module.exports = function (mainApp){
     ];
 
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
-    $scope.rightSideUrl = 'views/dashboard';
+    
 
     // $scope.getStations = function () {
 
@@ -84,11 +86,14 @@ module.exports = function (mainApp){
     $scope.showPlanting = function(planting){
       $scope.rightSideUrl = 'views/plantingGraph';
       console.log(planting.cropType);
+      console.log(farmer.plantings.plantingDate);
     };
     $scope.showDashboard = function(){
       $scope.rightSideUrl = 'views/dashboard';
       makeDailyHighLowGraph(235, '1-0-2014', '1-1-2014');
     };
+
+    $scope.showDashboard(); 
 
     $http({
       method: 'GET',

@@ -1,13 +1,14 @@
-form.form.eight.columns.offset-by-four(novalidate)
+include page-header
+form.eight.columns.offset-by-four.alpha.omega(novalidate)
   fieldset
     ul
       li
-        label(for="username") E-mail address:
+        label(for="username") e-mail address:
         input(type="email", name="username", id="username", ng-model="user.email",required)
       li
-        label(for="password") Password:
+        label(for="password") password:
         input(type="password", name="password", id="password", ng-model="user.password", required)
       li
-        button(type="submit", ng-click="signin()") Log In
-        a(href="/#/signup") or Sign Up
+        button(type="submit", ng-click="signin()") log in
+        a(href="/#/signup") or sign up
       p {{failedLogin}}

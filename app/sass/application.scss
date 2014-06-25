@@ -1,14 +1,12 @@
-@import url("http://fonts.googleapis.com/css?family=Exo+2:700italic");
-
 @import "vendors/vendors";
 @import "config";
 @import "reset";
 @import "typography";
 @import "buttons";
 @import "forms";
-@import "layouts/layouts";
-@import "ui_patterns/ui_patterns";
-@import "modules/modules";
+@import "layouts/manifest";
+@import "ui_patterns/manifest";
+@import "modules/manifest";
 
 /*temporary for blocking out wireframe*/
 .container {

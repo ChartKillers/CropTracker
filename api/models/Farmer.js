@@ -25,7 +25,6 @@ var farmerSchema = new Schema({
       minTempF: Number
     }
   }]
-
 });
 
 farmerSchema.methods.generateHash = function (password) {

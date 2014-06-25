@@ -11,7 +11,7 @@ module.exports = function(app, passport, jwtauth) {
       var newPlanting = {
         cropType : req.body.cropType,
         cropVariety : req.body.cropVariety,
-        plantingDate : dateStringToDate(req.body.plantingDate),
+        plantingDate : new Date(req.body.plantingDate),
         fieldName : req.body.fieldName,
         stationId : req.body.stationId,
         gddParameters : {
@@ -23,7 +23,7 @@ module.exports = function(app, passport, jwtauth) {
       req.farmer.plantings.push(newPlanting);
       req.farmer.save(function(err) {
         if (err) { return res.send(500, err); }
-        res.send({'msg' : 'planting saved'});
+        res.send(req.farmer);
       });
 
       // req.farmer.update( {$push: {"plantings": newPlanting}} );

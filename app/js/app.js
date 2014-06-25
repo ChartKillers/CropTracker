@@ -8,10 +8,6 @@ require('angular-route');
 require('angular-cookies');
 require('angular-base64');
 
-
-
-
-
 var mainApp = angular.module('mainApp', ['ngRoute', 'base64', 'ngCookies']);
 
 //controllers
@@ -39,9 +35,5 @@ mainApp.config(['$routeProvider',
         templateUrl: '/views/field-list',
         controller: 'FieldListCtrl'
       });
-      // .when('/add-planting', {
-      //   templateUrl: '/view/add-planting',
-      //   controller: 'DashboardCtrl'
-      // });
   }
 ]);

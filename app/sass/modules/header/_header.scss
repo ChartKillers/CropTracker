@@ -1,9 +1,10 @@
 header {
-  height: em(60);
+  height: em(80);
   background-color: $color-1;
   text-align: center;
+  padding-top: em(20);
   h1 {
-    font-size: em(30);
+    font-size: em(40);
   }
   nav li {
     display: inline-block;

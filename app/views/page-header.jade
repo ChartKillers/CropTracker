@@ -1,10 +1,20 @@
 header.container
-  figure.four.columns
-    a(href="#")
-      h1.logo Crop Tracker
-  h1.eight.columns {{farmer.basic.email}}'s Crops
+  a.logo.four.columns(href="#") Crop Tracker
+  h1.headline.eight.columns {{farmer.basic.email}}'s Crops
   nav.four.columns
-    a.fa.fa-home(ng-click="showDashboard()") Home
-    a.fa.fa-envelope(href="#") Contact
-    a.fa.fa-info-circle(href="#") About
-    a.fa.fa-sign-out(href="#") Sign out
+    ul
+      li(ng-click="showDashboard()")
+        p.fa.fa-home.fa-lg
+        p Home
+      a(href="")
+        li
+          p.fa.fa-envelope.fa-lg
+          p Contact
+      a(href="#")
+        li
+          p.fa.fa-info-circle.fa-lg
+          p Info
+      a(href="#")
+        li
+          p.fa.fa-sign-out.fa-lg
+          p Log out

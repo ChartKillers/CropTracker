@@ -1,10 +1,26 @@
-.cropType {
-  min-height: em(50);
+.fieldList {
+  & > section {
+    margin: 2px 0 2px 0;
+    border-radius: 4px;
+  }
+  h2, h3 {
+    font-size: em(24);
+  }
+  span {
+    padding-left: em(8);
+  }
+}
+
+.cropType, .add-field {
+  min-height: em(40);
+  line-height: em(40);
+  background-color: tint($color-2, 75%);
+  padding-left: em(8);
 }
 
 .field {
-  min-height: em(100);
-  border-bottom: 1px solid $alpha-gray;
+  min-height: em(60);
+  background-color: tint($color-2, 90%);
 }
 
 .field-gdd {

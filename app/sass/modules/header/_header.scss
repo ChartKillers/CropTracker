@@ -1,0 +1,13 @@
+header {
+  height: em(60);
+  background-color: $color-1;
+  text-align: center;
+  h1 {
+    font-size: em(30);
+  }
+  nav li {
+    display: inline-block;
+    margin: em(4);
+  }
+}
+

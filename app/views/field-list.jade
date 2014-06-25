@@ -1,19 +1,20 @@
 //- this article gets populated by the fields on the account - can be custom directive or something
 include page-header
-article.fieldList.six.columns
-  section.six.columns.alpha.omega
-    a.fa.fa-plus-circle(ng-click="addPlantings()") Add a field
+article.fieldList.six.columns.alpha
+  section.add-field(ng-click="addPlantings()")
+    h2 Add a field
+      span.fa.fa-plus-circle
   //- this section is the Crop Type heading template
   //- Use ng-show/hide to show this when it's relevant
-  section.cropType.six.columns.alpha.omega
-    p Crop type goes here
+  section.cropType
+    h2 {planting.cropType} Fields
   //- this sectinon is the Field Label template
-  section.field.six.columns.alpha.omega(ng-repeat="planting in farmer.plantings | orderBy: 'cropType'", ng-click="showPlanting(planting)")
+  section.field(ng-repeat="planting in farmer.plantings | orderBy: 'cropType'", ng-click="showPlanting(planting)")
     section.field-gdd.two.columns.alpha
       h3 1234
       p GDDs
     section.field-name.four.columns.omega
-      h3 {{planting.cropType}}
+      h3 {{planting.fieldName}}
       p Planted: {{planting.plantingDate | date}}
-article.right.ten.columns
+article.right.ten.columns.omega
   div(ng-include="rightSideUrl")

@@ -97,9 +97,9 @@ module.exports = function (grunt) {
                 files: ['app/views/*'],
                 tasks: ['copy']
             },
-            sass:{
-                files:['app/sass/*'],
-                tasks:['copy']
+            sass: {
+                files:['app/sass/**/*'],
+                tasks:['sass']
             }
 
 

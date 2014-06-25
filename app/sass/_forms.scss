@@ -1,2 +1,15 @@
 @import "forms/manifest";
 
+label {
+  @extend %display-block;
+}
+
+input {
+  @extend %display-block;
+  @extend %default-inputs;
+}
+
+select {
+  @extend %display-block;
+  @extend %default-inputs;
+}

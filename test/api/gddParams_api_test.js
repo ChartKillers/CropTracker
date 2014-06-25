@@ -50,6 +50,7 @@ describe('GDD params api', function () {
 
         superagent.get(getURL)
                 .end(function (err, res) {
+                  console.log("crop doesnt exist status: " + res.status);
                   expect(res.status).to.equal(401);
                   done();
                 });

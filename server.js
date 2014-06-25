@@ -53,7 +53,7 @@ require('./api/routes/tempHourStaRoutes')(app, socket);
     //NEW ACCOUNTS AND SIGN INS
 require('./api/routes/farmerRoutes')(app, passport, jwtauth.auth);
 
-require('./api/routes/transformDataRoute')(app, socket, jwtauth.auth);
+require('./api/routes/transformDataRoute')(app, jwtauth.auth);
 
 //require('./api/routes/transformDataRoute')(app, socket);
 console.log("required transformDataRoute file");

@@ -23,7 +23,7 @@ module.exports = function(app, passport, jwtauth) {
       req.farmer.plantings.push(newPlanting);
       req.farmer.save(function(err) {
         if (err) { return res.send(500, err); }
-        res.send({'msg' : 'planting saved'});
+        res.send(req.farmer);
       });
 
       // req.farmer.update( {$push: {"plantings": newPlanting}} );

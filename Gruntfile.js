@@ -28,6 +28,12 @@ module.exports = function (grunt) {
             main:{
                 files:[
                 {
+                expand:true,
+                src:['app/bower_components/font-awesome/fonts/*'],
+                dest: 'dist/fonts/',
+                filter: 'isFile'
+                },
+                {
                 expand: true,
                 flatten: true,
                 cwd:'app/',

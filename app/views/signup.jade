@@ -1,8 +1,7 @@
 form.form.eight.columns.offset-by-four(novalidate)
   fieldset
-    legend Sign Up
     p.error-msg(ng-show="error") {{error}}
-    ul 
+    ul
       li
         label(for="username") E-mail address:
         input(type="email", name="username", id="username", ng-model="user.email",required)
@@ -14,5 +13,5 @@ form.form.eight.columns.offset-by-four(novalidate)
         input(type="password", name="password2", id="password2", ng-model="user.password2", required)
       li
         button(type="submit" ng-click="signup()") Sign Up
-  a(href='/#/login') Sign In!
-
+        p Or if you already have an account,
+          a(href='/#/login') sign in.

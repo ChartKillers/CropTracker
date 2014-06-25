@@ -1,23 +1,24 @@
-fieldset
-  legend Add a field
-  ul
-    li
-      label(for="name") Field Name
-      input#name(ng-model="planting.fieldName", type="text", name="name", placeholder="Field name", required)
-    li
-      label(for="location") Nearest CIMIS Station
-      select#location(ng-model="planting.stationId", type="text", name="location", placeholder="Nearest CIMIS Station", list="locations", required)
-        option(ng-repeat="station in activeStations", value="{{station.id}}") {{station.county}} {{station.name}}
-    li
-      label(for="date") Planting Date:
-      input#date(ng-model="planting.plantingDateRaw", type="date", name="date", required)
-    li
-      label(for="crop-type") Crop Type
-      select#crop-type(ng-model="planting.crop", name="crop-type", placeholder="Crop Type", list="crop-types", required)
-        option(ng-repeat="crop in cropTypes", value="{{crop}}") {{crop.cropType | uppercase }} MinTemp: {{crop.gddParameters.minTempF}} MaxTemp: {{crop.gddParameters.maxTempF}}
-    li
-      label(for="variety") Crop Variety
-      input#variety(ng-model="planting.cropVariety" type="text", name="variety", placeholder="Variety")
-    li
-      button#submit(ng-click="postNewPlanting()", type="submit") Submit
-    p {{planting.plantingDate}}
+form.form.eight.columns.offset-by-one
+  fieldset
+    legend Add a field
+    ul
+      li
+        label(for="name") Field Name
+        input#name(ng-model="planting.fieldName", type="text", name="name", placeholder="Field name", required)
+      li
+        label(for="location") Nearest CIMIS Station
+        select#location(ng-model="planting.stationId", type="text", name="location", placeholder="Nearest CIMIS Station", list="locations", required)
+          option(ng-repeat="station in activeStations", value="{{station.id}}") {{station.county}} {{station.name}}
+      li
+        label(for="date") Planting Date:
+        input#date(ng-model="planting.plantingDateRaw", type="date", name="date", required)
+      li
+        label(for="crop-type") Crop Type
+        select#crop-type(ng-model="planting.crop", name="crop-type", placeholder="Crop Type", list="crop-types", required)
+          option(ng-repeat="crop in cropTypes", value="{{crop}}") {{crop.cropType | uppercase }} MinTemp: {{crop.gddParameters.minTempF}} MaxTemp: {{crop.gddParameters.maxTempF}}
+      li
+        label(for="variety") Crop Variety
+        input#variety(ng-model="planting.cropVariety" type="text", name="variety", placeholder="Variety")
+      li
+        button#submit(ng-click="postNewPlanting()", type="submit") Submit
+      p {{planting.plantingDate}}

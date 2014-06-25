@@ -7,6 +7,8 @@ module.exports = function (mainApp){
     $scope.rightSideUrl = 'views/dashboard';
      
 
+      
+
     $scope.activeStations = [
       {county: 'Contra Costa', id: 10, name: 'Brentwood'},
       {county: 'Contra Costa', id: 12, name: 'Lafayette'},

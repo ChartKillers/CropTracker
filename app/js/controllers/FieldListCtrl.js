@@ -4,20 +4,18 @@ module.exports = function (mainApp){
 
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     function ($scope, $http, $cookies) {
-    $scope.rightSideUrl = 'views/dashboard';
-     
 
-      
+    $scope.plantingGddGraphData;
 
     $scope.activeStations = [
-      {county: 'Contra Costa', id: 10, name: 'Brentwood'},
-      {county: 'Contra Costa', id: 12, name: 'Lafayette'},
-      {county: 'Sacramento', id: 123, name: 'Verona'},
-      {county: 'Davis', id: 210, name: 'Davis'}
+      {county: 'Contra Costa', id: 240, name: 'Brentwood'},
+      {county: 'Contra Costa', id: 240, name: 'Lafayette'},
+      {county: 'Sacramento', id: 240, name: 'Verona'},
+      {county: 'Davis', id: 240, name: 'Davis'}
     ];
 
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
-    
+    $scope.rightSideUrl = 'views/dashboard';
 
     // $scope.getStations = function () {
 
@@ -88,14 +86,22 @@ module.exports = function (mainApp){
     $scope.showPlanting = function(planting){
       $scope.rightSideUrl = 'views/plantingGraph';
       console.log(planting.cropType);
-      console.log(farmer.plantings.plantingDate);
+      $http({
+        method: 'GET',
+        url: '/api/v0_0_1/daily-cum-gdd/' + planting._id
+      }).success(function (data) {
+          $scope.plantingGddGraphData = data;
+          console.log('got graph data', data);
+      }).error(function(data){
+          console.log('err getting graph data', data);
+      });
+
+
     };
     $scope.showDashboard = function(){
       $scope.rightSideUrl = 'views/dashboard';
       makeDailyHighLowGraph(235, '1-0-2014', '1-1-2014');
     };
-
-    $scope.showDashboard(); 
 
     $http({
       method: 'GET',

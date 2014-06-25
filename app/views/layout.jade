@@ -6,7 +6,12 @@ html(lang="en-us" ng-app="mainApp")
     meta(name="description", content="See the number of cumulative growing degree days(GDD) for your crops")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title CropTracker
+    link(href='http://fonts.googleapis.com/css?family=Exo+2:700italic', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='style.css')
+    link(rel='stylesheet', href='vendors/nvd3.css')
     body
       main.container(ng-view)
+      script(src='vendors/d3.js')
+      script(src='vendors/nv.d3.js')  
       script(src="client.js")
+      script(src='http://localhost:35729/livereload.js')

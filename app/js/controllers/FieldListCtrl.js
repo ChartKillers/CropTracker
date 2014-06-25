@@ -73,7 +73,6 @@ module.exports = function (mainApp){
         url: '/api/v0_0_1/gddParams'
       }).success(function (data) {
         $scope.cropTypes = data;
-        console.log($scope.cropTypes);
       });
     };
 
@@ -82,9 +81,9 @@ module.exports = function (mainApp){
       $scope.getDefaultCrops();
     };
 
-    $scope.showPlanting = function(){
-      $scope.rightSideUrl = 'views/dashboard';
-      console.log("SUP");
+    $scope.showPlanting = function(planting){
+      $scope.rightSideUrl = 'views/plantingGraph';
+      console.log(planting.cropType);
     };
     $scope.showDashboard = function(){
       $scope.rightSideUrl = 'views/dashboard';
@@ -96,7 +95,6 @@ module.exports = function (mainApp){
       url: '/api/v0_0_1/farmers/data'
     }).success(function(farmerDoc) {
       $scope.farmer = farmerDoc;
-      console.log($scope);
     });
 
   }]);

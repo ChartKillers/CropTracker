@@ -24,7 +24,10 @@ var farmerSchema = new Schema({
       maxTempF: Number,
       minTempF: Number
     }
-  }]
+  }],
+
+  defaultCimisId: Number
+
 });
 
 farmerSchema.methods.generateHash = function (password) {

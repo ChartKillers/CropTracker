@@ -17,9 +17,9 @@ module.exports = function paintDailyHighLowGraph(parsedJSON){
 
       var tempData = parsedJSON;
       console.log(tempData);
-      d3.select('.gdd-recent')
-        .attr("height", 48)
-        .attr("width", 100)
+      d3.select('.graph')
+          .attr('height', 400)
+          .attr('width', 400)
           .datum(tempData)
           .call(chart);
 

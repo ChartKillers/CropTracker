@@ -26,6 +26,9 @@ mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     {county: 'Davis', id: 210, name: 'Davis'}
   ];
 
+  $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
+  $scope.rightSideUrl = 'views/dashboard';
+
   // $scope.getStations = function () {
 
   //   $http({
@@ -92,9 +95,10 @@ mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     $scope.rightSideUrl = 'views/add-plantings';
     $scope.getDefaultCrops();
   };
-
-  $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
-  $scope.rightSideUrl = 'views/dashboard';
+  $scope.showDashboard = function(){
+    $scope.rightSideUrl = 'views/dashboard';
+    makeDailyHighLowGraph(235, '1-0-2014', '1-1-2014');
+  }
 
   $http({
     method: 'GET',

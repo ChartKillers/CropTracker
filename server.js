@@ -5,6 +5,8 @@ var passport = require('passport');
 var consolidate = require('consolidate');
 var path = require('path');
 
+var configDB = require('./config/database.js');
+
 //SERVER SETUP
 var app = express();
 app.use(bodyparser.json());
@@ -42,7 +44,7 @@ socket.on('connect', function(){
 
 //MONGO
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/users');
+mongoose.connect(configDB.url);
 
 
 //ROUTES

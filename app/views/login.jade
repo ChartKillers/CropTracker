@@ -1,6 +1,5 @@
 form.form.eight.columns.offset-by-four(novalidate)
   fieldset
-    legend Log In
     ul
       li
         label(for="username") E-mail address:
@@ -9,6 +8,6 @@ form.form.eight.columns.offset-by-four(novalidate)
         label(for="password") Password:
         input(type="password", name="password", id="password", ng-model="user.password", required)
       li
-        button(type="submit", ng-click="signin()") Submit
+        button(type="submit", ng-click="signin()") Log In
         a(href="/#/signup") or Sign Up
       p {{failedLogin}}

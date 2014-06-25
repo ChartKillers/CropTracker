@@ -1,0 +1,10 @@
+.button {
+  display: block;
+  height: em(40);
+  width: em(150);
+  background-color: $color-3;
+  color: $white;
+  border-radius: 4px;
+  line-height: em(40);
+  text-align: center;
+}

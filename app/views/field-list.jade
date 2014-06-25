@@ -6,7 +6,7 @@ main.container
     //- Use ng-show/hide to show this when it's relevant
     a(ng-click="showDashboard()") Back to Graph
     section.cropType.six.columns
-      h2 
+      p(ng-repeat="planting in farmer.plantings") {{planting.cropType}}, {{planting.plantingDate}}
     //- this sectinon is the Field Label template
     section.field.five.columns.offset-by-one
       h3 Number of Plantings {{ farmer.plantings.length }}

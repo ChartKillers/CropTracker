@@ -18,7 +18,7 @@ $color-2: #3e4147;        // green
 $color-3: #fffedf;        // red
 
 
-$alpha-gray:      #333;           //black
+$alpha-gray:      #333333;           //black
 
 /////// Color math
 // *----------------------------------------
@@ -51,7 +51,7 @@ $primary-text:                         $alpha-gray;
 $href-color:                           $color-1;
 
 // default shadow colors
-$shadow-color:                         fade-out($alpha-grey, 0.5);
+$shadow-color:                         fade-out($alpha-gray, 0.5);
 
 // default border color
 $border-color:                         $color-1;

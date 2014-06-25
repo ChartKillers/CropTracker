@@ -31,7 +31,8 @@ module.exports = function (grunt) {
                 expand:true,
                 src:['app/bower_components/font-awesome/fonts/*'],
                 dest: 'dist/fonts/',
-                filter: 'isFile'
+                filter: 'isFile',
+                flatten: true
                 },
                 {
                 expand: true,
@@ -51,7 +52,7 @@ module.exports = function (grunt) {
 
         browserify: {
             standalone: {
-                src: 'app/js/*.js',
+                src: 'app/js/**/*.js',
                 dest: 'dist/client.js'
             },
             test: {

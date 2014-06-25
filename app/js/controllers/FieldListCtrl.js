@@ -5,6 +5,8 @@ module.exports = function (mainApp){
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
     function ($scope, $http, $cookies) {
 
+      
+
     $scope.activeStations = [
       {county: 'Contra Costa', id: 10, name: 'Brentwood'},
       {county: 'Contra Costa', id: 12, name: 'Lafayette'},

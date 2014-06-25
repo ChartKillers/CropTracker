@@ -17,7 +17,7 @@ describe('Farmer account api', function () {
 
     it('can succesfully create a new user', function (done) {
 
-        email = 'kevinmstephens' + parseInt(Math.random()*100) + '@gmail.com';
+        email = 'kevinmstephens' + parseInt(Math.random()*1000) + '@gmail.com';
         password = 'pwpwpw' + parseInt(Math.random()*100) + '!';
         console.log(email);
         console.log(password);
@@ -25,7 +25,8 @@ describe('Farmer account api', function () {
         superagent.post('http://localhost:3000/api/v0_0_1/farmers')
                 .send({
                     email: email,
-                    password: password
+                    password: password,
+                    plantings: []
 
                 })
                 .end(function (err, res) {
@@ -35,7 +36,7 @@ describe('Farmer account api', function () {
                     done();
                 });
     });
-    //
+
     // it('cant create user that already exists', function (done) {
     //     superagent.post('http://localhost:3000/api/v0_0_1/farmers')
     //             .send({
@@ -62,7 +63,7 @@ describe('Farmer account api', function () {
     //                 done();
     //             });
     // });
-
+    //
     // it('will reject bad password for existing user', function (done) {
     //
     //     superagent.get('http://localhost:3000/api/v0_0_1/farmers')
@@ -80,13 +81,15 @@ describe('Farmer account api', function () {
 describe('Gdd transform api', function () {
 
   this.timeout(15000);
+  var date1 = new Date(2014, 3, 3, 3, 3, 3, 4);
+  var date2 = new Date(2014, 4, 4, 4, 4, 4, 4);
 
   it('farmer will add a new planting', function (done) {
         superagent.post('http://localhost:3000/api/v0_0_1/farmers/plantings')
                 .send( {
                     cropType : 'corn',
                     cropVariety : 'popcorn',
-                    plantingDate : '10-4-2014',
+                    plantingDate : date1,
                     fieldName : 'magic field 7',
                     stationId : 240,
                     maxTempF : 86,
@@ -106,7 +109,7 @@ describe('Gdd transform api', function () {
                 .send( {
                     cropType : 'rice',
                     cropVariety : 'megarice',
-                    plantingDate : '15-4-2014',
+                    plantingDate : date2,
                     fieldName : 'magic field 13',
                     stationId : 240,
                     maxTempF : 90,

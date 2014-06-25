@@ -1,1 +1,19 @@
-@import "typography/typography";
+@import url(http://fonts.googleapis.com/css?family=Exo+2:700italic);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
+html {
+  font: em($font-size, 16) $primary-font;
+  line-height: baseline($font-size);
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+.logo {
+  font-family: $secondary-font;
+  font-style: italic;
+  font-size: em($heading-1);
+}
+
+

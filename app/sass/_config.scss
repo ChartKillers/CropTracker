@@ -1,0 +1,62 @@
+$primary-font: #{'Roboto', Arial, sans-serif};
+$secondary-font: #{'Exo 2', Arial, sans-serif};
+
+$font-size: 16;
+
+$heading-1: 36;
+$heading-2: 32;
+$heading-3: 28;
+$heading-4: 18;
+$heading-5: 18;
+$heading-6: 18;
+
+
+/////// OOCSS generic base colors
+// *----------------------------------------
+$color-1: #5a2e2e;        // blue
+$color-2: #3e4147;        // green
+$color-3: #fffedf;        // red
+
+
+$alpha-gray:      #333;           //black
+
+/////// Color math
+// *----------------------------------------
+// Add percentage of white to a color
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+
+/////// Semantic variables
+// *----------------------------------------
+// abstract 'white' value to easily applied to semantic class objects
+$white:                                #fff;
+
+// primary header font color
+$primary-header-color:                 $alpha-gray;
+
+// default heading font weight
+$heading-font-weight:                  bold;
+
+// primary font color for the app
+$primary-text:                         $alpha-gray;
+
+// default `href` link color
+$href-color:                           $color-1;
+
+// default shadow colors
+$shadow-color:                         fade-out($alpha-grey, 0.5);
+
+// default border color
+$border-color:                         $color-1;
+
+
+//////// Default animation properties
+// *----------------------------------------
+$trans: .333s ease;

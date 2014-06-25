@@ -1,16 +1,22 @@
 @import "forms/manifest";
 
-label {
-  @extend %display-block;
-}
+form {
+  margin-top: em(20);
 
-input {
-  @extend %display-block;
-  @extend %default-inputs;
-}
+  label {
+    @extend %display-block;
+  }
 
-select {
-  @extend %display-block;
-  @extend %default-inputs;
-}
+  input {
+    @extend %default-inputs;
+  }
 
+  select {
+    @extend %default-inputs;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+}

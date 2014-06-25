@@ -4,6 +4,7 @@
 html {
   font: em($font-size, 16) $primary-font;
   line-height: baseline($font-size);
+  color: $alpha-gray;
 }
 
 h1, h2, h3, h4 {

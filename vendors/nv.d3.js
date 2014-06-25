@@ -8021,7 +8021,7 @@ nv.models.multiBarChart = function() {
       }
     , x //can be accessed via chart.xScale()
     , y //can be accessed via chart.yScale()
-    , state = { stacked: true }  //KYLE CHANGES
+    , state = { stacked: false}  //KYLE CHANGES (back to normal now)
     , defaultState = null
     , noData = "No Data Available."
     , dispatch = d3.dispatch('tooltipShow', 'tooltipHide', 'stateChange', 'changeState')
@@ -8030,7 +8030,7 @@ nv.models.multiBarChart = function() {
     ;
 
   multibar
-    .stacked(true)   //KYLE CHANGES
+    .stacked(false)   //KYLE CHANGES (back to normal now)
     ;
   xAxis
     .orient('bottom')

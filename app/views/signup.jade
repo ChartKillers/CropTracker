@@ -1,16 +1,18 @@
-form.form.eight.columns.offset-by-four
+form.form.eight.columns.offset-by-four(novalidate)
   fieldset
     legend Sign Up
-    ul
+    p.error-msg(ng-show="error") {{error}}
+    ul 
       li
-        label(for="email") E-mail address:
-        input(type="email", name="email", id="email", required)
+        label(for="username") E-mail address:
+        input(type="email", name="username", id="username", ng-model="user.email",required)
       li
-        label(for="password1") Password:
-        input(type="password", name="password1", required)
+        label(for="password") Password:
+        input(type="password", name="password", id="password", ng-model="user.password", required)
       li
         label(for="password2") Re-enter your password:
-        input(type="password", name="password2", required)
+        input(type="password", name="password2", id="password2", ng-model="user.password2", required)
       li
-        button(type="submit") Sign Up
+        button(type="submit" ng-click="signup()") Sign Up
   a(href='/#/login') Sign In!
+

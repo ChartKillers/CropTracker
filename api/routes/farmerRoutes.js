@@ -49,7 +49,7 @@ module.exports = function(app, passport, jwtauth) {
             }
 
             if(user) {
-                res.send(401, {'msg': 'A user with that email already exists'});
+                res.send(409, {'msg': 'A user with that email already exists'});
                 return false;
             }
 

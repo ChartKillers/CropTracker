@@ -1,4 +1,5 @@
 var GddParams = require('../models/gddParams');
+var http = require('http');
 
 // Using this schema:
 // var gddParamsSchema = new Schema({
@@ -92,5 +93,35 @@ module.exports = function(app, socket) {
     });
   });
 
+  //GET route for getting active stations
+  app.get('/api/v0_0_1/activeStations', function(req, res){
+
+    res.setHeader('Content-Type', 'application/json');
+
+    var URL = 'http://shrouded-falls-4448.herokuapp.com/api/v1/stations';
+
+    // Run GET request on the Ruby clean CIMIS server
+    http.get(URL, function (result) {
+        result.setEncoding('utf8');
+        var body = '';
+        var stationsData = [];
+
+        result.on("data", function(chunk){
+            body += chunk;
+        });
+
+        // Run GDD transform logic after data from get request is loaded
+        result.on("end", function() {
+            stationsData = JSON.parse(body);
+            var activeList = [];
+            for(var i = 0; i < stationsData.length; i++) {
+              if (stationsData[i].is_active === true) {
+                activeList.push(stationsData[i]);
+              }
+            }
+            res.send(activeList);
+        });
+    });
+  });
 
 };

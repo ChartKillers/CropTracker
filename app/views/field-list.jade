@@ -7,7 +7,7 @@ article.fieldList.six.columns
   section.cropType.six.columns
     p Crop type goes here
   //- this sectinon is the Field Label template
-  section.field(ng-repeat="planting in farmer.plantings")
+  section.field(ng-repeat="planting in farmer.plantings | orderBy: 'cropType'" )
     section.field-gdd.two.columns.alpha
       h3 1234
       p GDDs

@@ -1,8 +1,10 @@
 main.container
   //- this article gets populated by the fields on the account - can be custom directive or something
   article.fieldList.six.columns
-    a(ng-click="addPlantings()") Edit/Add Plantings
+    a(ng-click="addPlantings()") Edit/Add Plantings <br>
     //- this section is the Crop Type heading template
+    //- Use ng-show/hide to show this when it's relevant
+    a(ng-click="showDashboard()") Back to Graph
     section.cropType.six.columns
       p(ng-repeat="planting in farmer.plantings") {{planting.cropType}}, {{planting.plantingDate}}
     //- this sectinon is the Field Label template

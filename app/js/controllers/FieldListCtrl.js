@@ -81,10 +81,15 @@ module.exports = function (mainApp){
       $scope.rightSideUrl = 'views/add-plantings';
       $scope.getDefaultCrops();
     };
+
+    $scope.showPlanting = function(){
+      $scope.rightSideUrl = 'views/dashboard';
+      console.log("SUP");
+    };
     $scope.showDashboard = function(){
       $scope.rightSideUrl = 'views/dashboard';
       makeDailyHighLowGraph(235, '1-0-2014', '1-1-2014');
-    }
+    };
 
     $http({
       method: 'GET',

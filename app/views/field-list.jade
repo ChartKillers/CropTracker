@@ -4,7 +4,7 @@ main.container
     a(ng-click="addPlantings()") Edit/Add Plantings
     //- this section is the Crop Type heading template
     section.cropType.six.columns
-      h2 
+      p(ng-repeat="planting in farmer.plantings") {{planting.cropType}}, {{planting.plantingDate}}
     //- this sectinon is the Field Label template
     section.field.five.columns.offset-by-one
       h3 Number of Plantings {{ farmer.plantings.length }}

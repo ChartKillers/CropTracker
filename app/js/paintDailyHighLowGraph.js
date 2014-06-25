@@ -17,7 +17,7 @@ module.exports = function paintDailyHighLowGraph(parsedJSON){
 
       var tempData = parsedJSON;
       console.log(tempData);
-      d3.select('.graph')
+      d3.select('.fiveDayTempGraph')
           .attr('height', 400)
           .attr('width', 400)
           .datum(tempData)

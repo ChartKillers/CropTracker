@@ -1,6 +1,4 @@
 var $ = require ('jquery');
-var getDailyHighLow = require('./getDailyHighLow');
-var makeDailyHighLowGraph = require('./makeDailyHighLowGraph');
 
 //
 require('angular');

@@ -108,6 +108,7 @@ module.exports = function (mainApp){
         url: '/api/v0_0_1/daily-cum-gdd/' + planting._id
       }).success(function (data) {
           makeCumGddGraph(data);
+          //makeDailyGraph(data);
           $scope.plantingGddGraphData = data;
           console.log('got graph data', data);
       }).error(function(data){

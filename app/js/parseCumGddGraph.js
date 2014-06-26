@@ -10,8 +10,8 @@ module.exports = function parseCumGddGraph(gddData, callback) {
 	var startDate = new Date() - days(numberOfDays);
 
 	for(var i = 0; i <= dates.length-1; i++){
-		cumValue.push({x: i, y: gddData.cum[i]});
-		dailyValue.push({x: i, y: gddData.gdd[i]})
+		cumValue.push({x: new Date(startDate + days(i)), y: gddData.cum[i]});
+		dailyValue.push({x: new Date(startDate + days(i)), y: gddData.gdd[i]})
 	}
 	console.log("CUMVALUE");
 	console.log(cumValue);
@@ -19,12 +19,14 @@ module.exports = function parseCumGddGraph(gddData, callback) {
     {
       values: cumValue,  
       key: 'Cumulative GDD',
-      color: '#ff7f0e' 
+      color: '#ff7f0e',
+      area: true 
     },
     {
       values: dailyValue,
       key: 'Daily GDD',
-      color: '#2ca02c'
+      color: '#2ca02c',
+      area: true
     }
   ]);
 };

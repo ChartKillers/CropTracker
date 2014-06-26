@@ -1,6 +1,8 @@
 header {
   height: em(80);
   background-color: $color-1;
+  background-image: $background-img;
+  background-position-y: em(-400);
   text-align: center;
   padding-top: em(20);
   h1 {

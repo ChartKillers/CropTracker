@@ -1,14 +1,21 @@
 .hero {
-  background-image: url("http://31.media.tumblr.com/67151918dbf1e1ca27ed5a0921970c81/tumblr_n5waphpp4M1st5lhmo1_1280.jpg");
+  background-image: $background-img;
   background-position-y: em(-100);
   background-color: $color-2;
   height: em(500);
   width: 100%;
   color: $alpha-gray;
   text-align: center;
+
   .logo {
     font-size: em(60);
     color: $color-1;
     margin-top: em(40);
+  }
+
+  .signup {
+    margin: em(40) auto;
+    text-align: right;
+    width: em(150);
   }
 }

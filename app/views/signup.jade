@@ -5,28 +5,22 @@ form.eight.columns.offset-by-four.alpha.omega(novalidate)
     p.error-msg(ng-repeat="err in error") {{err}}
     ul
       li
-        label(for="name-first") first name:
-        input#name-first(type="text", name="name-first", ng-model="user.firstName", required)
+        input#name-first(type="text", placeholder="First name", name="name-first", ng-model="user.firstName")
       li
-        label(for="name-last") last name:
-        input#name-last(type="text", name="name-last", ng-model="user.lastName", required)
+        input#name-last(type="text", name="name-last", placeholder="Last name", ng-model="user.lastName")
       li
-        label(for="company") company:
-        input#company(type="text", name="company", ng-model="user.company")
+        input#company(type="text", name="company", placeholder="Company name", ng-model="user.company")
       li
-        label(for="location") default CIMIS station:
-        select#location(ng-model="user.defaultCimisId", type="text", name="location", list="locations", required)
+        select#location(ng-model="user.defaultCimisId", type="text", name="location", list="locations")
+          option(value="") Default CIMIS Station
           option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
       li
-        label(for="username") e-mail address:
-        input(type="email", name="username", id="username", ng-model="user.email", required)
+        input#username(type="email", name="username", placeholder="example@email.com", ng-model="user.email")
       li
-        label(for="password") password:
-        input(type="password", name="password", id="password", ng-model="user.password", required)
+        input(type="password", name="password", id="password", placeholder="Password", ng-model="user.password")
       li
-        label(for="password2") re-enter your password:
-        input(type="password", name="password2", id="password2", ng-model="user.password2", required)
+        input(type="password", name="password2", id="password2", placeholder="Re-enter your password", ng-model="user.password2")
       li
         button(type="submit" ng-click="signup()") sign up
-        p or if you already have an account,
-          a(href='/#/login') sign in.
+        p or if you already have an account,#{ }
+          a(href='/#/login') log in.

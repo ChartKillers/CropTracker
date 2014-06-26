@@ -12,10 +12,13 @@ module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
 	var highTemps = [];
 	var lowTemps = [];
 	var tempData = dailyHighLowJSON;
-	var start_date = new Date() - days(4);
+	var needsAName = tempData.length-1;
+	var startDate = new Date() - days(needsAName);
+	console.log("Start Date");
+	console.log(startDate);
 		for(var i = tempData.length-1; i > tempData.length-6; i--){
-			highTemps.push({x: new Date(start_date + days(i)), y: tempData[i].maxTempF});
-			lowTemps.push({x: new Date(start_date + days(i)), y: tempData[i].minTempF});
+			highTemps.push({x: new Date(startDate + days(i)), y: tempData[i].maxTempF});
+			lowTemps.push({x: new Date(startDate + days(i)), y: tempData[i].minTempF});
 		}
 
 	//pass results to callback graph painter

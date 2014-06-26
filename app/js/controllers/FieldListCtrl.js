@@ -1,4 +1,5 @@
 var makeDailyHighLowGraph = require('../makeDailyHighLowGraph');
+var makeCumGddGraph = require('../makeCumGddGraph');
 
 module.exports = function (mainApp){
 
@@ -104,6 +105,7 @@ module.exports = function (mainApp){
         method: 'GET',
         url: '/api/v0_0_1/daily-cum-gdd/' + planting._id
       }).success(function (data) {
+          makeCumGddGraph(data);
           $scope.plantingGddGraphData = data;
           console.log('got graph data', data);
       }).error(function(data){

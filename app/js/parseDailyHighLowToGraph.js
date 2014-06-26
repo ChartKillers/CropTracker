@@ -20,7 +20,8 @@ module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
 			highTemps.push({x: new Date(startDate + days(i)), y: tempData[i].maxTempF});
 			lowTemps.push({x: new Date(startDate + days(i)), y: tempData[i].minTempF});
 		}
-
+		console.log("HIGH TEMPS");
+		console.log(highTemps);
 	//pass results to callback graph painter
 	callback([
 	{values: lowTemps, key: 'Daily Low', color: '#46bab4'},

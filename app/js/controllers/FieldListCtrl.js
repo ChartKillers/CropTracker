@@ -1,5 +1,5 @@
-var makeDailyHighLowGraph = require('../makeDailyHighLowGraph');
-var makeCumGddGraph = require('../makeCumGddGraph');
+var makeDailyHighLowGraph = require('../graphs/makeDailyHighLowGraph');
+var makeCumGddGraph = require('../graphs/makeCumGddGraph');
 
 module.exports = function (mainApp){
 

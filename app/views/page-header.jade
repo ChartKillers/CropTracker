@@ -25,3 +25,5 @@ header
         p
           span.fa.fa-sign-out.fa-lg
           | Log out
+.account-confirm(ng-show="loggedIn")
+  p Welcome, {{farmer.name.firstName}}

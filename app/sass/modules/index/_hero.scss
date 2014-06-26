@@ -6,16 +6,21 @@
   width: 100%;
   color: $alpha-gray;
   text-align: center;
+  margin-bottom: em(10);
 
   .logo {
-    font-size: em(60);
+    font-size: em(80);
     color: $color-1;
-    margin-top: em(40);
+    margin-top: em(15);
   }
 
   .signup {
-    margin: em(40) auto;
-    text-align: right;
-    width: em(150);
+    margin: em(90) auto;
+    text-align: center;
+    width: 100%;
+
+    p {
+      margin-top: 1em;
+    }
   }
 }

@@ -9,7 +9,7 @@ article.fieldList.six.columns.alpha
   section.cropType
     h2 {planting.cropType} Fields
   //- this sectinon is the Field Label template
-  section.field(ng-repeat="planting in farmer.plantings | orderBy: 'plantingDate'", ng-click="showPlanting(planting)")
+  section.field.row(ng-repeat="planting in farmer.plantings | orderBy: 'plantingDate'", ng-click="showPlanting(planting)")
     section.field-gdd.two.columns.alpha
       h3 1234
       p GDDs

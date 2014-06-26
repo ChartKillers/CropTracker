@@ -14,6 +14,8 @@ module.exports = function paintDailyHighLowGraph(parsedJSON){
         .tickFormat(function(d){return d3.time.format('%d-%b')(new Date(d));});
 
       chart.yAxis
+        .axisLabel('Temperature(F)')
+        .rotate(90)
         .tickFormat(d3.format(',.1f'));
 
       var tempData = parsedJSON;

@@ -16,7 +16,7 @@ module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
 	var startDate = new Date() - days(needsAName);
 	console.log("Start Date");
 	console.log(startDate);
-		for(var i = tempData.length-1; i > tempData.length-6; i--){
+		for(var i = tempData.length-6; i < tempData.length-1; i++){
 			highTemps.push({x: new Date(startDate + days(i)), y: tempData[i].maxTempF});
 			lowTemps.push({x: new Date(startDate + days(i)), y: tempData[i].minTempF});
 		}

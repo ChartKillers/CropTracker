@@ -113,8 +113,8 @@ module.exports = function (mainApp){
     var endDate;
     
     $scope.showDashboard = function(){
-      endDate = new Date();
-      var newDate = endDate.getMonth()+ "-" + endDate.getDate()+ "-" + endDate.getFullYear();
+      date = new Date();
+      var newDate = date.getMonth()+ "-" + date.getDate()+ "-" + date.getFullYear();
       console.log(newDate);
       $scope.rightSideUrl = 'views/dashboard';
       $scope.pageTitle = 'Dashboard';

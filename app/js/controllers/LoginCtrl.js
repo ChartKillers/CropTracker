@@ -4,10 +4,12 @@ module.exports = function(mainApp){
               '$base64', '$cookies', '$location', 
               function ($scope, $http, $base64, $cookies, $location) {
 
+      if ($cookies.jwt_token){
+          $location.path('/field-list');
+      };
+
       $scope.user = {};
-      $scope.user.email = 'admin@gmail.com',
-      $scope.user.password = 'password'
-      
+      $scope.pageTitle = 'Create Account'; 
 
       $scope.signin = function () {
 

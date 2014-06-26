@@ -3,7 +3,7 @@ module.exports = function(mainApp){
   mainApp.controller('SignupCtrl', [ '$scope', '$cookies', '$http', '$location',
       function ($scope, $cookies, $http, $location) {
     
-
+    $scope.pageTitle = 'Create Account';
 
     $scope.getStationList = function () {
       $http({

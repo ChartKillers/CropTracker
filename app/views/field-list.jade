@@ -2,7 +2,7 @@
 include page-header
 article.fieldList.six.columns.alpha
   section.add-field(ng-click="addPlantings()")
-    h2 Add a field
+    h2 Add plantings
       span.fa.fa-plus-circle
   //- this section is the Crop Type heading template
   //- Use ng-show/hide to show this when it's relevant
@@ -17,4 +17,5 @@ article.fieldList.six.columns.alpha
       h3 {{planting.fieldName}}
       p Planted: {{planting.plantingDate | date}}
 article.right.ten.columns.omega
+  p {{farmer.basic.email}}
   div(ng-include="rightSideUrl")

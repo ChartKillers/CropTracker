@@ -1,6 +1,6 @@
 header
   a.logo.four.columns(href="#") Crop Tracker
-  h1.headline.eight.columns {pass a page title}
+  h1.headline.eight.columns {{pageTitle}}
   nav.four.columns
     ul
       li(ng-click="showDashboard()")
@@ -14,7 +14,7 @@ header
         li
           p.fa.fa-info-circle.fa-lg
           p Info
-      a(href="#")
+      a(ng-click="logout()")
         li
           p.fa.fa-sign-out.fa-lg
           p Log out

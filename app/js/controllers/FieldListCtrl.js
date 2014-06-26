@@ -2,33 +2,41 @@ var makeDailyHighLowGraph = require('../makeDailyHighLowGraph');
 
 module.exports = function (mainApp){
 
-  mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
-    function ($scope, $http, $cookies) {
+  mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies', '$location',
+    function ($scope, $http, $cookies, $location) {
 
+    $scope.pageTitle = 'Dashboard';
     $scope.plantingGddGraphData;
-
-    $scope.activeStations = [
-      {county: 'Contra Costa', id: 240, name: 'Brentwood'},
-      {county: 'Contra Costa', id: 240, name: 'Lafayette'},
-      {county: 'Sacramento', id: 240, name: 'Verona'},
-      {county: 'Davis', id: 240, name: 'Davis'}
-    ];
 
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
     $scope.rightSideUrl = 'views/dashboard';
 
-    // $scope.getStations = function () {
-
-    //   $http({
-    //     method: 'GET',
-    //     url: ''
-    //   }).success(function (data) {
-    //     $scope.stations = data;
-    //   });
-
-    // };
-
     $scope.planting= {};
+    $scope.activeStationList;
+
+    if (!$cookies.jwt_token){
+        $location.path('/login');
+    };
+
+    $scope.logout = function () {
+      delete $cookies['jwt_token'];
+      $location.path('/login');
+    };
+
+    $scope.getStationList = function () {
+      $http({
+        method: 'GET',
+        url: '/api/v0_0_1/activeStations'
+      }).success(function (data) {
+        if (data){
+          $scope.activeStationList = data;
+        } else {
+          console.log('no data from active stations request');
+        }
+      }).error(function (data) {
+        console.log('error on active station req', data.msg);
+      });
+    };
 
     $scope.postNewPlanting = function() {
 
@@ -81,6 +89,8 @@ module.exports = function (mainApp){
     $scope.addPlantings = function() {
       $scope.rightSideUrl = 'views/add-plantings';
       $scope.getDefaultCrops();
+      $scope.getStationList();
+      $scope.pageTitle = "Add Plantings"
     };
 
     $scope.showPlanting = function(planting){
@@ -98,6 +108,8 @@ module.exports = function (mainApp){
 
 
     };
+
+
     var endDate;
     
     $scope.showDashboard = function(){
@@ -105,8 +117,11 @@ module.exports = function (mainApp){
       var newDate = endDate.getMonth()+ "-" + endDate.getDate()+ "-" + endDate.getFullYear();
       console.log(newDate);
       $scope.rightSideUrl = 'views/dashboard';
+      $scope.pageTitle = 'Dashboard';
       makeDailyHighLowGraph(235, '1-0-2014', newDate);
     };
+
+    $scope.showDashboard();
 
     $http({
       method: 'GET',

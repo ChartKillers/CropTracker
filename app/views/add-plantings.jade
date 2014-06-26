@@ -5,9 +5,9 @@ form.eight.columns.offset-by-one.alpha.omega
         label(for="name") Field Name
         input#name(ng-model="planting.fieldName", type="text", name="name", placeholder="Field name", required)
       li
-        label(for="location") Nearest CIMIS Station
-        select#location(ng-model="planting.stationId", type="text", name="location", placeholder="Nearest CIMIS Station", list="locations", required)
-          option(ng-repeat="station in activeStations", value="{{station.id}}") {{station.county}} {{station.name}}
+        label(for="location") CIMIS station:
+        select#location(ng-model="planting.stationId", type="text", name="location", list="locations", required)
+          option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
       li
         label(for="date") Planting Date:
         input#date(ng-model="planting.plantingDateRaw", type="date", name="date", required)
@@ -20,4 +20,3 @@ form.eight.columns.offset-by-one.alpha.omega
         input#variety(ng-model="planting.cropVariety" type="text", name="variety", placeholder="Variety")
       li
         button#submit(ng-click="postNewPlanting()", type="submit") Submit
-      p {{planting.plantingDate}}

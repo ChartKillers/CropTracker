@@ -6,10 +6,10 @@ form.eight.columns.offset-by-four.alpha.omega(novalidate)
     ul
       li
         label(for="name-first") first name:
-        input#name-first(type="text", name="name-first", ng-model="user.firstName",required)
+        input#name-first(type="text", name="name-first", ng-model="user.firstName", required)
       li
         label(for="name-last") last name:
-        input#name-last(type="text", name="name-last", ng-model="user.lastName",required)
+        input#name-last(type="text", name="name-last", ng-model="user.lastName", required)
       li
         label(for="company") company:
         input#company(type="text", name="company", ng-model="user.company")
@@ -19,7 +19,7 @@ form.eight.columns.offset-by-four.alpha.omega(novalidate)
           option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
       li
         label(for="username") e-mail address:
-        input(type="email", name="username", id="username", ng-model="user.email",required)
+        input(type="email", name="username", id="username", ng-model="user.email", required)
       li
         label(for="password") password:
         input(type="password", name="password", id="password", ng-model="user.password", required)

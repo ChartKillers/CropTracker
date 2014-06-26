@@ -1,7 +1,6 @@
 @import "forms/manifest";
 
 form {
-
   ul {
     margin-top: em(20);
   }
@@ -18,12 +17,13 @@ form {
   }
 
   input {
+    @include box-sizing(border-box);
     @extend %default-inputs;
+    font-family: $primary-font;
   }
 
   select {
     @extend %default-inputs;
-    height: 2em;
   }
 
   fieldset {
@@ -31,8 +31,9 @@ form {
   }
 
   button {
-    @extend %display-block;
-    font-size: em(24);
+    width: em(120);
+    float: right;
+    font-size: em(16);
     padding: em(8);
     background-color: $color-2;
     border: none;

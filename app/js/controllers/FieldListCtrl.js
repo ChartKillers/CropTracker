@@ -90,9 +90,14 @@ module.exports = function (mainApp){
       console.log(planting.cropType);
       console.log(farmer.plantings.plantingDate);
     };
+    var endDate;
+    
     $scope.showDashboard = function(){
+      endDate = new Date();
+      var newDate = endDate.getMonth()+ "-" + endDate.getDate()+ "-" + endDate.getFullYear();
+      console.log(newDate);
       $scope.rightSideUrl = 'views/dashboard';
-      makeDailyHighLowGraph(235, '1-0-2014', '1-1-2014');
+      makeDailyHighLowGraph(235, '1-0-2014', newDate);
     };
 
     $scope.showDashboard(); 

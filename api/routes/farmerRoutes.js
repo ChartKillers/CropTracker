@@ -26,17 +26,6 @@ module.exports = function(app, passport, jwtauth) {
         res.send(req.farmer);
       });
 
-      // req.farmer.update( {$push: {"plantings": newPlanting}} );
-
-      // Farmer.findByIdAndUpdate(
-      //     req.farmer._id,
-      //     {$push: {"plantings": newPlanting}},
-      //     {safe: true, upsert: true},
-      //     function(err, model) {
-      //         console.log(err);
-      //     }
-      // );
-
     });
 
     app.post('/api/v0_0_1/farmers', function (req, res) {
@@ -54,9 +43,17 @@ module.exports = function(app, passport, jwtauth) {
             }
 
             var newUser = new Farmer({});
+
             newUser.basic.email = req.body.email;
             newUser.basic.password = newUser.generateHash(req.body.password);
+            newUser.defaultCimisId = req.body.defaultCimisId;
             newUser.admin = false;
+            newUser.plantings = [];
+            newUser.company = req.body.company;
+            newUser.name = {
+              firstName: req.body.firstName,
+              lastName: req.body.lastName
+            };
 
             newUser.save(function(err, resNewUser) {
                 if(err) {

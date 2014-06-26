@@ -1,20 +1,25 @@
 include page-header
 form.eight.columns.offset-by-four.alpha.omega(novalidate)
   fieldset
-    p.error-msg(ng-show="error") {{error}}
+    p.error-msg {{postError}}
+    p.error-msg(ng-repeat="err in error") {{err}}
     ul
       li
         label(for="name-first") first name:
-        input#name-first(type="text", name="name-first", ng-model="name.firstName",required)
+        input#name-first(type="text", name="name-first", ng-model="user.firstName", required)
       li
         label(for="name-last") last name:
-        input#name-last(type="text", name="name-last", ng-model="name.lastName",required)
+        input#name-last(type="text", name="name-last", ng-model="user.lastName", required)
       li
         label(for="company") company:
-        input#company(type="text", name="company", ng-model="name.companyName")
+        input#company(type="text", name="company", ng-model="user.company")
+      li
+        label(for="location") default CIMIS station:
+        select#location(ng-model="user.defaultCimisId", type="text", name="location", list="locations", required)
+          option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
       li
         label(for="username") e-mail address:
-        input(type="email", name="username", id="username", ng-model="user.email",required)
+        input(type="email", name="username", id="username", ng-model="user.email", required)
       li
         label(for="password") password:
         input(type="password", name="password", id="password", ng-model="user.password", required)

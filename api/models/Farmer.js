@@ -8,7 +8,9 @@ var Schema = mongoose.Schema;
 var farmerSchema = new Schema({
 
   name: { firstName: String, lastName: String },
-  //username: String,
+  
+  company: String,
+
   basic: {
     email: String,
     password: String

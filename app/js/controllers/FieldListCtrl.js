@@ -2,35 +2,41 @@ var makeDailyHighLowGraph = require('../makeDailyHighLowGraph');
 
 module.exports = function (mainApp){
 
-  mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies',
-    function ($scope, $http, $cookies) {
-    $scope.rightSideUrl = 'views/dashboard';
-     
+  mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies', '$location',
+    function ($scope, $http, $cookies, $location) {
 
-      
-
-    $scope.activeStations = [
-      {county: 'Contra Costa', id: 10, name: 'Brentwood'},
-      {county: 'Contra Costa', id: 12, name: 'Lafayette'},
-      {county: 'Sacramento', id: 123, name: 'Verona'},
-      {county: 'Davis', id: 210, name: 'Davis'}
-    ];
+    $scope.pageTitle = 'Dashboard';
+    $scope.plantingGddGraphData;
 
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
-    
-
-    // $scope.getStations = function () {
-
-    //   $http({
-    //     method: 'GET',
-    //     url: ''
-    //   }).success(function (data) {
-    //     $scope.stations = data;
-    //   });
-
-    // };
+    $scope.rightSideUrl = 'views/dashboard';
 
     $scope.planting= {};
+    $scope.activeStationList;
+
+    if (!$cookies.jwt_token){
+        $location.path('/login');
+    };
+
+    $scope.logout = function () {
+      delete $cookies['jwt_token'];
+      $location.path('/login');
+    };
+
+    $scope.getStationList = function () {
+      $http({
+        method: 'GET',
+        url: '/api/v0_0_1/activeStations'
+      }).success(function (data) {
+        if (data){
+          $scope.activeStationList = data;
+        } else {
+          console.log('no data from active stations request');
+        }
+      }).error(function (data) {
+        console.log('error on active station req', data.msg);
+      });
+    };
 
     $scope.postNewPlanting = function() {
 
@@ -83,13 +89,27 @@ module.exports = function (mainApp){
     $scope.addPlantings = function() {
       $scope.rightSideUrl = 'views/add-plantings';
       $scope.getDefaultCrops();
+      $scope.getStationList();
+      $scope.pageTitle = "Add Plantings"
     };
 
     $scope.showPlanting = function(planting){
       $scope.rightSideUrl = 'views/plantingGraph';
       console.log(planting.cropType);
-      console.log(farmer.plantings.plantingDate);
+      $http({
+        method: 'GET',
+        url: '/api/v0_0_1/daily-cum-gdd/' + planting._id
+      }).success(function (data) {
+          $scope.plantingGddGraphData = data;
+          console.log('got graph data', data);
+      }).error(function(data){
+          console.log('err getting graph data', data);
+      });
+
+
     };
+
+
     var endDate;
     
     $scope.showDashboard = function(){
@@ -97,10 +117,11 @@ module.exports = function (mainApp){
       var newDate = date.getMonth()+ "-" + date.getDate()+ "-" + date.getFullYear();
       console.log(newDate);
       $scope.rightSideUrl = 'views/dashboard';
+      $scope.pageTitle = 'Dashboard';
       makeDailyHighLowGraph(235, '1-0-2014', newDate);
     };
 
-    $scope.showDashboard(); 
+    $scope.showDashboard();
 
     $http({
       method: 'GET',

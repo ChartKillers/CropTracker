@@ -8,17 +8,7 @@ module.exports = function(app, passport, jwtauth) {
 
     app.post('/api/v0_0_1/farmers/plantings', jwtauth, function (req, res) {
 
-      var newPlanting = {
-        cropType : req.body.cropType,
-        cropVariety : req.body.cropVariety,
-        plantingDate : new Date(req.body.plantingDate),
-        fieldName : req.body.fieldName,
-        stationId : req.body.stationId,
-        gddParameters : {
-          maxTempF : req.body.maxTempF,
-          minTempF : req.body.minTempF
-        }
-      };
+      var newPlanting = req.body;
 
       req.farmer.plantings.push(newPlanting);
       req.farmer.save(function(err) {

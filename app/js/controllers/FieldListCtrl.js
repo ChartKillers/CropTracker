@@ -5,6 +5,8 @@ module.exports = function (mainApp){
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies', '$location',
     function ($scope, $http, $cookies, $location) {
     
+    $scope.loggedIn = $cookies.jwt_token;
+
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
 
     $http({

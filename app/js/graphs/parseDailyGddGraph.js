@@ -16,7 +16,7 @@ module.exports = function parseDailyGddGraph(gddData, callback) {
     {
       values: dailyValue,
       key: 'Daily GDD',
-      color: '#2ca02c',
+      color: '#2e59af',
       area: true
     }
   ]);

@@ -19,7 +19,7 @@ module.exports = function parseCumGddGraph(gddData, callback) {
     {
       values: cumValue,  
       key: 'Cumulative GDD',
-      color: '#ff7f0e',
+      color: '#527b2d',
       area: true 
     }
   ]);

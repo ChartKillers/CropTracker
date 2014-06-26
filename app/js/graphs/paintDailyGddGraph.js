@@ -20,7 +20,7 @@ module.exports = function paintDailyGddGraph(dailyGddData){
   	
   	var myData = dailyGddData;  
 	
-  	d3.select('.plantingGraph')
+  	d3.select('.dailyGddGraph')
         .attr('height', 200)
         .attr('width', 400)  			    
   	    .datum(myData)         

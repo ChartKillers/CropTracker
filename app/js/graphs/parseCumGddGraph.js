@@ -21,12 +21,6 @@ module.exports = function parseCumGddGraph(gddData, callback) {
       key: 'Cumulative GDD',
       color: '#ff7f0e',
       area: true 
-    },
-    {
-      values: dailyValue,
-      key: 'Daily GDD',
-      color: '#2ca02c',
-      area: true
     }
   ]);
 };

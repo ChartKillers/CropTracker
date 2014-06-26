@@ -14,7 +14,11 @@ header
         li
           p.fa.fa-info-circle.fa-lg
           p Info
-      a(ng-click="logout()")
+      a(ng-show="!loggedIn" ng-click="logout()")
+        li
+          p.fa.fa-sign-in.fa-lg
+          p Log in
+      a(ng-show="loggedIn" ng-click="logout()")
         li
           p.fa.fa-sign-out.fa-lg
           p Log out

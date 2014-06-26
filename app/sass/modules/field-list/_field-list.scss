@@ -20,6 +20,7 @@
 
 .field {
   min-height: em(60);
+  height: auto;
   background-color: tint($color-2, 90%);
 }
 

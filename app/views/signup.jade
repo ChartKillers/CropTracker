@@ -11,7 +11,7 @@ form.eight.columns.offset-by-four.alpha.omega(novalidate)
       li
         input#company(type="text", name="company", placeholder="Company name", ng-model="user.company")
       li
-        select#location(ng-model="user.defaultCimisId", type="text", name="location", list="locations")
+        select#location(ng-model="user.defaultCimisId", name="location", list="locations")
           option(value="") Default CIMIS Station
           option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
       li
@@ -22,5 +22,5 @@ form.eight.columns.offset-by-four.alpha.omega(novalidate)
         input(type="password", name="password2", id="password2", placeholder="Re-enter your password", ng-model="user.password2")
       li
         button(type="submit" ng-click="signup()") sign up
-        p or if you already have an account,#{ }
+        p or if you already have an account,{{' '}}
           a(href='/#/login') log in.

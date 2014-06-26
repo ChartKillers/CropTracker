@@ -4,13 +4,19 @@ module.exports = function (mainApp){
 
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies', '$location',
     function ($scope, $http, $cookies, $location) {
+    
+    $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
+
+    $http({
+      method: 'GET',
+      url: '/api/v0_0_1/farmers/data'
+    }).success(function(farmerDoc) {
+      $scope.farmer = farmerDoc;
+    });
 
     $scope.pageTitle = 'Dashboard';
     $scope.plantingGddGraphData;
-
-    $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
     $scope.rightSideUrl = 'views/dashboard';
-
     $scope.planting= {};
     $scope.activeStationList;
 
@@ -41,8 +47,7 @@ module.exports = function (mainApp){
     $scope.postNewPlanting = function() {
 
       var rec = $scope.planting;
-
-
+      
       //convert from raw date into JavaScript date object
       //raw date is in form YYYY-MM-DD
       //but need YYYY, MM -1 , DD for JavaScript date constructor
@@ -62,7 +67,6 @@ module.exports = function (mainApp){
       };
 
       delete rec['crop'];
-
 
       $http({
         method: 'POST',
@@ -109,9 +113,6 @@ module.exports = function (mainApp){
 
     };
 
-
-    var endDate;
-    
     $scope.showDashboard = function(){
       date = new Date();
       var newDate = date.getMonth()+ "-" + date.getDate()+ "-" + date.getFullYear();
@@ -120,15 +121,7 @@ module.exports = function (mainApp){
       $scope.pageTitle = 'Dashboard';
       makeDailyHighLowGraph(235, '1-0-2014', newDate);
     };
-
+    //calls the above function on page load
     $scope.showDashboard();
-
-    $http({
-      method: 'GET',
-      url: '/api/v0_0_1/farmers/data'
-    }).success(function(farmerDoc) {
-      $scope.farmer = farmerDoc;
-    });
-
   }]);
 };

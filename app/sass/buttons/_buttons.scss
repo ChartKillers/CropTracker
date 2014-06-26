@@ -1,5 +1,5 @@
 .button {
-  display: block;
+  display: inline-block;
   height: em(40);
   width: em(150);
   background-color: $color-3;
@@ -7,5 +7,5 @@
   border-radius: 4px;
   line-height: em(40);
   text-align: center;
-  margin: 0 auto;
+  margin: em(20);
 }

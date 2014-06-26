@@ -1,24 +1,27 @@
 header
-  a.logo.four.columns(href="#") Crop Tracker
+  a(href="/")
+    h1.logo.four.columns Crop Tracker
   h1.headline.eight.columns {{pageTitle}}
-  nav.four.columns
+  nav.two.columns.offset-by-two
     ul
       li(ng-click="showDashboard()")
-        p.fa.fa-home.fa-lg
-        p Home
-      a(href="")
-        li
-          p.fa.fa-envelope.fa-lg
-          p Contact
+        p
+          span.fa.fa-home.fa-lg
+          | Home
       a(href="#")
         li
-          p.fa.fa-info-circle.fa-lg
-          p Info
-      a(ng-show="!loggedIn" ng-click="logout()")
-        li
-          p.fa.fa-sign-in.fa-lg
-          p Log in
-      a(ng-show="loggedIn" ng-click="logout()")
-        li
-          p.fa.fa-sign-out.fa-lg
-          p Log out
+          p
+            span.fa.fa-info-circle.fa-lg
+            | Info
+      li(ng-click="USER SETTINGS GO HERE")
+        p
+          span.fa.fa-gear.fa-lg
+          | Settings
+      li(ng-show="!loggedIn" ng-click="logout()")
+        p
+          span.fa.fa-sign-in.fa-lg
+          | Log in
+      li(ng-show="loggedIn" ng-click="logout()")
+        p
+          span.fa.fa-sign-out.fa-lg
+          | Log out

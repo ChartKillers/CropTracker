@@ -5,12 +5,13 @@ module.exports = function paintDailyHighLowGraph(parsedJSON){
       .transitionDuration(300)
         .reduceXTicks(true)   //If 'false', every single x-axis tick label will be rendered.
         .rotateLabels(0)      //Angle to rotate x-axis labels.
-        .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+        .showControls(false)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
         .groupSpacing(0.1);   //Distance between each group of bars.
       
 
       chart.xAxis
-        .tickFormat(d3.format(',f'));
+        .axisLabel('Date')
+        .tickFormat(function(d){return d3.time.format('%d-%b')(new Date(d));});
 
       chart.yAxis
         .tickFormat(d3.format(',.1f'));

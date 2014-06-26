@@ -8037,7 +8037,7 @@ nv.models.multiBarChart = function() {
     .tickPadding(7)
     .highlightZero(true)
     .showMaxMin(false)
-    .tickFormat(function(d) { return d })
+    .tickFormat(function(d) { return d }) //returns x value
     ;
   yAxis
     .orient((rightAlignYAxis) ? 'right' : 'left')

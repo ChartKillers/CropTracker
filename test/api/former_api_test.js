@@ -180,10 +180,10 @@ describe('Gdd transform api', function () {
                     cropVariety : 'megarice',
                     plantingDate : date2,
                     fieldName : 'magic field ' + parseInt(Math.random()*1000),
-                    stationId : 238,
+                    stationId : 240,
                     gddParameters : {
-                      maxTempF : 98,
-                      minTempF : 56,
+                      maxTempF : 80,
+                      minTempF : 60,
                     },
                     lastUpdated : currentDate,
                     lastCumGdd : 0

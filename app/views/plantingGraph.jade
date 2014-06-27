@@ -2,9 +2,9 @@ h2 Field info for {{currentPlanting.fieldName}}
 button(ng-click="editPlanting()") Edit
   span.fa.fa-edit
 p Planting date: {{currentPlanting.plantingDate | date}}
-p CIMIS Station: {{currentPlanting.stationID}}
-p Crop type: {{currentPlanting.cropType}}
-p Variety: {{currentPlanting.variety}}
+p(ng-repeat="station in activeStationList| filter:currentPlanting.stationId") Cimis Station: {{station.name+", "+ station.county + " County"}}
+p Crop type: {{capFirst(currentPlanting.cropType)}}
+p Variety: {{capFirst(currentPlanting.cropVariety)}}
 figure.gdd-field
   figcaption Cumulative GDD since {{currentPlanting.plantingDate | date}}
   svg.plantingGraph

@@ -52,6 +52,12 @@ form {
     box-shadow: none;
     border-radius: 4px;
     color: $white;
+    &:hover {
+      background-color: shade($color-2, 20%);
+    }
+    &:active {
+      background-color: tint($color-2, 20%);
+    }
   }
 
   a {

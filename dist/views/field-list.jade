@@ -1,14 +1,12 @@
-//- this article gets populated by the fields on the account - can be custom directive or something
 include page-header
 article.fieldList.six.columns.alpha
   section.add-field(ng-click="goToAddPlantings()")
-    h2 Add plantings
+    h2 Add a field
       span.fa.fa-plus-circle
   //- this section is the Crop Type heading template
-  //- Use ng-show/hide to show this when it's relevant
   section.cropType(ng-repeat="(key, value) in farmer.plantings")
     h2 {{capFirst(key)}}
-    //- this sectinon is the Field Label template
+    //- this section is the Field Label template
     section.field.row(ng-repeat="planting in value", ng-click="goToPlantingDetail(planting)")
       section.field-gdd
         h3 1234
@@ -16,4 +14,5 @@ article.fieldList.six.columns.alpha
       section.field-name
         h3 {{planting.fieldName}}
         p Planted: {{planting.plantingDate | date}}
+      span.fa.fa-angle-double-right.fa-lg
 article.right.ten.columns.omega(ng-include="rightSideUrl")

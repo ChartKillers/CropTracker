@@ -20,6 +20,9 @@
   line-height: em(40);
   background-color: $color-2;
   padding-left: em(8);
+  &:hover {
+    background-color: tint($color-2, 20%);
+  }
 }
 
 .cropType {
@@ -34,6 +37,9 @@
   border: 1px solid tint($color-2, 20%);
   border-radius: 2px;
   margin-top: em(4);
+  &:hover {
+    background-color: tint($color-2, 70%);
+  }
 }
 
 .field-gdd {
@@ -43,6 +49,6 @@
 }
 
 .field-name {
-  width: 65%;
-  float: right;
+  width: 60%;
+  float: left;
 }

@@ -291,8 +291,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.eot?v=4.1.0');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+  src: url('fonts//fontawesome-webfont.eot?v=4.1.0');
+  src: url('fonts//fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('fonts//fontawesome-webfont.woff?v=4.1.0') format('woff'), url('fonts//fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('fonts//fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -1837,6 +1837,10 @@ h1, h2, h3, h4 {
   text-align: center;
   margin: 1.875em;
   font-weight: bold; }
+  .button:hover {
+    background-color: #941900; }
+  .button:active {
+    background-color: #c74c33; }
 
 form input, form select {
   width: 100%;
@@ -1880,6 +1884,10 @@ form button {
   box-shadow: none;
   border-radius: 4px;
   color: #fff; }
+  form button:hover {
+    background-color: #416224; }
+  form button:active {
+    background-color: #749557; }
 form a {
   color: #2E59AF; }
   form a:hover {
@@ -1910,6 +1918,8 @@ form .error-msg {
   line-height: 2.5em;
   background-color: #527B2D;
   padding-left: 0.5em; }
+  .add-field:hover {
+    background-color: #749557; }
 
 .cropType {
   background-color: #527B2D;
@@ -1922,6 +1932,8 @@ form .error-msg {
   border: 1px solid #749557;
   border-radius: 2px;
   margin-top: 0.25em; }
+  .field:hover {
+    background-color: #cbd7c0; }
 
 .field-gdd {
   text-align: center;
@@ -1929,8 +1941,8 @@ form .error-msg {
   float: left; }
 
 .field-name {
-  width: 65%;
-  float: right; }
+  width: 60%;
+  float: left; }
 
 .hero {
   background-image: url("http://31.media.tumblr.com/67151918dbf1e1ca27ed5a0921970c81/tumblr_n5waphpp4M1st5lhmo1_1280.jpg");
@@ -1980,6 +1992,8 @@ header {
     padding-right: 0.625em; }
   header nav li {
     cursor: pointer; }
+    header nav li:hover {
+      text-decoration: underline; }
 
 .account-confirm {
   float: right;
@@ -2004,11 +2018,15 @@ header {
   width: 5.625em;
   font-size: 1em;
   padding: 0.25em;
-  background-color: #2E59AF;
+  background-color: #B92000;
   border: none;
   box-shadow: none;
   border-radius: 4px;
   color: #fff; }
+  .right > button:hover {
+    background-color: #941900; }
+  .right > button:active {
+    background-color: #c74c33; }
 .right span {
   padding-left: 0.5em; }
 

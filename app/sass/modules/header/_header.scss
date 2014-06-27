@@ -17,6 +17,9 @@ header {
 
   nav li {
     cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }
 

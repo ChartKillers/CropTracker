@@ -33627,6 +33627,8 @@ module.exports = function (mainApp){
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
     $scope.loggedIn = $cookies.jwt_token;
 
+    $scope.activeStationName = '';
+
     //on page load get the farmer document
     getFarmerData($http, function(farmerData) {
 
@@ -33635,7 +33637,10 @@ module.exports = function (mainApp){
       var newDate = date.getFullYear() + '-' 
           + date.getMonth() + "-" + date.getDate();
       makeDailyHighLowGraph($scope.farmer.defaultCimisId, '2014-01-01', newDate);
-      getActiveStationList();
+      getActiveStationList(function () {
+        $scope.setActiveStationName($scope.farmer.defaultCimisId, $scope.activeStationName);
+      });
+
     });
 
     //sets title in header
@@ -33674,6 +33679,18 @@ module.exports = function (mainApp){
       });
     };
 
+    $scope.setActiveStationName = function (stationId)  {
+
+     _.each($scope.activeStationList, function(station){
+
+        if ( stationId == station.station_nbr ){
+          $scope.activeStationName = station.name + ", " + station.county + " County";
+          return;
+        }
+
+      });
+
+    };
     //==============================================
     //CALLS THAT CHANGE THE RIGHT SIDE URL
 
@@ -33701,6 +33718,7 @@ module.exports = function (mainApp){
     $scope.goToPlantingDetail = function(planting){
       $scope.currentPlanting = planting;
       $scope.rightSideUrl = 'views/plantingGraph';
+      $scope.setActiveStationName($scope.currentPlanting.stationId);
       getPlantingDailyGDD($http, planting, function(plantingGDDData) {
           makeCumGddGraph(plantingGDDData);
           makeDailyGddGraph(plantingGDDData);
@@ -33731,13 +33749,14 @@ module.exports = function (mainApp){
     //OTHER FUNCTIONS NOT ON SCOPE
 
     //get list of active stations
-    function getActiveStationList() {
+    function getActiveStationList(callback) {
       if ($scope['activeStationList']) {
         return;
       }
       
       getActiveCimisStations($http, function(data){
         $scope.activeStationList = data;
+        callback();
       });
     };
 

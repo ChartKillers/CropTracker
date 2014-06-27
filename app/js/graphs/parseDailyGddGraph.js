@@ -11,9 +11,6 @@ module.exports = function parseDailyGddGraph(gddData, callback) {
 	for(var i = 0; i <= dates.length-1; i++){
 		dailyValue.push({x: new Date(startDate + days(i)), y: gddData.gdd[i]})
 	}
-	console.log("DAILYVALUE");
-  console.log(dailyValue);
-  console.log(dates);
   callback([
     {
       values: dailyValue,

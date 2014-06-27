@@ -33,15 +33,6 @@ app.use(passport.initialize());
 require('./api/lib/passport')(passport);
 
 
-//SOCKET.IO FOR CONNECTING TO TEMPERATURE SERVER
-var socket = require('socket.io-client')('http://localhost:5000');
-
-socket.on('connect', function(){
-    console.log('Connected to rails service');
-});
-//END SOCKET.IO
-
-
 //MONGO
 var mongoose = require('mongoose');
 mongoose.connect(configDB.url);
@@ -61,7 +52,7 @@ require('./api/routes/transformDataRoute')(app, jwtauth.auth);
 console.log("required transformDataRoute file");
 
     //GDD PARAMS
-require('./api/routes/gddParamsRoutes')(app, socket);
+require('./api/routes/gddParamsRoutes')(app);
 
 
     //JADE-ANGULAR PARTIAL ROUTES

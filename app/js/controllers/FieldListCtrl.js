@@ -113,7 +113,6 @@ module.exports = function (mainApp){
       var newDate = date.getFullYear() + '-' 
           + date.getMonth() + "-" + date.getDate();
       makeDailyHighLowGraph($scope.farmer.defaultCimisId, '2014-01-01', newDate);
-      console.log("Hello");
     };
 
     $scope.capFirst = function(word){

@@ -32,7 +32,6 @@ module.exports = function (mainApp){
       var date = new Date();
       var newDate = date.getFullYear() + '-' 
           + date.getMonth() + "-" + date.getDate();
-      console.log($scope.farmer.defaultCimisId);
       makeDailyHighLowGraph($scope.farmer.defaultCimisId, '2014-01-01', newDate);
     });
 
@@ -119,7 +118,6 @@ module.exports = function (mainApp){
     //return right side to home view
     $scope.goToDashboard = function(){
       $scope.rightSideUrl = 'views/dashboard';
-      console.log('about to makeDaily');
       var date = new Date();
       var newDate = date.getFullYear() + '-' 
           + date.getMonth() + "-" + date.getDate();

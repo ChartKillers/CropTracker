@@ -14,14 +14,10 @@ module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
 	var tempData = dailyHighLowJSON;
 	var needsAName = tempData.length-1;
 	var startDate = new Date() - days(needsAName);
-	console.log("Start Date");
-	console.log(startDate);
 		for(var i = 0; i < 5; i++){
 			highTemps.push({x: new Date(startDate + days(i)), y: tempData[i].daily_max});
 			lowTemps.push({x: new Date(startDate + days(i)), y: tempData[i].daily_min});
 		}
-		console.log("HIGH TEMPS");
-		console.log(highTemps);
 	//pass results to callback graph painter
 	callback([
 	{values: lowTemps, key: 'Daily Low', color: '#2e59af'},

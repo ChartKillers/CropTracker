@@ -27,7 +27,13 @@ module.exports = function (mainApp){
 
     //on page load get the farmer document
     getFarmerData($http, function(farmerData) {
+
       setFarmer(farmerData);
+      var date = new Date();
+      var newDate = date.getFullYear() + '-' 
+          + date.getMonth() + "-" + date.getDate();
+      console.log($scope.farmer.defaultCimisId);
+      makeDailyHighLowGraph($scope.farmer.defaultCimisId, '2014-01-01', newDate);
     });
 
     //sets title in header
@@ -112,14 +118,15 @@ module.exports = function (mainApp){
 
     //return right side to home view
     $scope.goToDashboard = function(){
-      date = new Date();
-      var newDate = date.getMonth()+ "-" + date.getDate()+ "-" + date.getFullYear();
       $scope.rightSideUrl = 'views/dashboard';
       console.log('about to makeDaily');
-      makeDailyHighLowGraph(235, '1-0-2014', newDate);
+      var date = new Date();
+      var newDate = date.getFullYear() + '-' 
+          + date.getMonth() + "-" + date.getDate();
+      makeDailyHighLowGraph($scope.farmer.defaultCimisId, '2014-01-01', newDate);
+
     };
 
-    $scope.goToDashboard();
 
     //==============================================
     //OTHER FUNCTIONS NOT ON SCOPE

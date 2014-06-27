@@ -1,0 +1,16 @@
+include page-header
+form.eight.columns.offset-by-four.alpha.omega(novalidate)
+  fieldset
+    ul
+      h1 Log in to Crop Tracker
+      li
+        label(for="username") e-mail address:
+        input#username(type="email", name="username", placeholder="example@username.com", ng-model="user.email")
+      li
+        label(for="password") password:
+        input#password(type="password", name="password", ng-model="user.password")
+      li
+        button(type="submit", ng-click="signin()") log in
+        p Don't have an account yet? {{' '}}
+          a(href="/#/signup") Sign up
+      p {{failedLogin}}

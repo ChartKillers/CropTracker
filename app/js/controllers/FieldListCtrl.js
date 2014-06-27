@@ -1,12 +1,20 @@
 var makeDailyHighLowGraph = require('../graphs/makeDailyHighLowGraph');
 var makeCumGddGraph = require('../graphs/makeCumGddGraph');
 var makeDailyGddGraph = require('../graphs/makeDailyGddGraph');
+var plantingsByCropType = require('../plantingsByCropType');
 
 module.exports = function (mainApp){
 
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies', '$location',
     function ($scope, $http, $cookies, $location) {
     
+    $scope.farmer = {};
+
+    var setFarmer = function(farmerDoc){
+      farmerDoc.plantings = plantingsByCropType(farmerDoc.plantings);
+      $scope.farmer = farmerDoc;
+    };
+
     $scope.loggedIn = $cookies.jwt_token;
 
     $http.defaults.headers.common['jwt_token'] = $cookies.jwt_token;
@@ -15,7 +23,7 @@ module.exports = function (mainApp){
       method: 'GET',
       url: '/api/v0_0_1/farmers/data'
     }).success(function(farmerDoc) {
-      $scope.farmer = farmerDoc;
+      setFarmer(farmerDoc);
     });
 
     $scope.pageTitle = 'Dashboard';
@@ -77,7 +85,7 @@ module.exports = function (mainApp){
         url: '/api/v0_0_1/farmers/plantings',
         data: rec,
       }).success(function (newFarmerDoc) {
-        $scope.farmer = newFarmerDoc;
+        setFarmer(newFarmerDoc);
         $scope.planting = {};
       }).error(function(data){
         console.log(data);

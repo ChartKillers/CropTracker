@@ -126,12 +126,6 @@ module.exports = function (grunt) {
                     background: true,
                     script: 'server.js'
                 }
-            },
-            tempService: {
-                options: {
-                    background: true,
-                    script: 'serverRailsTemp.js'
-                }
             }
         },
 
@@ -149,7 +143,7 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('server', ['express:tempService', 'express:dev', 'build', 'watch']);
+    grunt.registerTask('server', ['express:dev', 'build', 'watch']);
     grunt.registerTask('serve', ['server']);
     grunt.registerTask('test', ['jshint', 'browserify:test', 'express:dev', 'casper:acceptance']);
     grunt.registerTask('build', ['clean', 'browserify:standalone', 'sass', 'copy']);

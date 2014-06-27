@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 var farmerSchema = new Schema({
 
   name: { firstName: String, lastName: String },
-  
+
   company: String,
 
   basic: {
@@ -25,7 +25,9 @@ var farmerSchema = new Schema({
     gddParameters: {
       maxTempF: Number,
       minTempF: Number
-    }
+    },
+    lastUpdated: Date,
+    lastCumGdd: Number
   }],
 
   defaultCimisId: Number
@@ -49,5 +51,10 @@ farmerSchema.methods.createToken = function (app) {
   }, app.get('jwtTokenSecret'));
   return token;
 };
+
+farmerSchema.methods.updateGdd = function (app) {
+  console.log(" ");
+};
+
 
 module.exports = mongoose.model('farmers', farmerSchema);

@@ -3,7 +3,7 @@ var dateToAPI = require('./dateToAPIString');
 
 module.exports = function getRubyServerParams (currentFarmer, pid) {
 
-  console.log("HITTING INSIDE GET RUBY URL FILE");
+  //console.log("HITTING INSIDE GET RUBY URL FILE");
 
   var currentPlanting = _.find(currentFarmer.plantings,
     function(e){ return e._id == pid ; });

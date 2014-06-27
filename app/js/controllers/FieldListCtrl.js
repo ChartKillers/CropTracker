@@ -111,6 +111,7 @@ module.exports = function (mainApp){
 
     $scope.showPlanting = function(planting){
       $scope.rightSideUrl = 'views/plantingGraph';
+      $scope.pageTitle = planting.fieldName;
       console.log(planting.cropType);
       $http({
         method: 'GET',
@@ -133,9 +134,9 @@ module.exports = function (mainApp){
       console.log(newDate);
       $scope.rightSideUrl = 'views/dashboard';
       $scope.pageTitle = 'Dashboard';
-      makeDailyHighLowGraph(235, '1-0-2014', newDate);
+      makeDailyHighLowGraph(238, '1-0-2014', newDate);
     };
-    //calls the above function on page load
+    //executes the above function on page load
     $scope.showDashboard();
   }]);
 };

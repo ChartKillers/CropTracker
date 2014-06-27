@@ -7,10 +7,10 @@ module.exports = function (mainApp){
 
   mainApp.controller('FieldListCtrl', [ '$scope', '$http', '$cookies', '$location',
     function ($scope, $http, $cookies, $location) {
-    
+
     $scope.farmer = {};
 
-    var setFarmer = function(farmerDoc){
+    function setFarmer(farmerDoc){
       farmerDoc.plantings = plantingsByCropType(farmerDoc.plantings);
       $scope.farmer = farmerDoc;
     };
@@ -34,6 +34,11 @@ module.exports = function (mainApp){
 
     if (!$cookies.jwt_token){
         $location.path('/login');
+    };
+
+    $scope.editPlanting = function () {
+      $scope.addPlantings();
+      $scope.pageTitle = "Edit Planting";
     };
 
     $scope.logout = function () {
@@ -88,7 +93,7 @@ module.exports = function (mainApp){
         setFarmer(newFarmerDoc);
         $scope.planting = {};
       }).error(function(data){
-        console.log(data);
+        console.log('post error', data);
       });
 
     };
@@ -109,6 +114,10 @@ module.exports = function (mainApp){
       $scope.pageTitle = "Add Plantings"
     };
 
+    function setCurrentPlanting(planting){
+      $scope.currentPlanting = planting;
+    };
+
     $scope.showPlanting = function(planting){
       $scope.rightSideUrl = 'views/plantingGraph';
       $scope.pageTitle = planting.fieldName;
@@ -120,7 +129,7 @@ module.exports = function (mainApp){
           makeCumGddGraph(data);
           makeDailyGddGraph(data);
           $scope.plantingGddGraphData = data;
-          console.log('got graph data', data);
+          setCurrentPlanting(planting);
       }).error(function(data){
           console.log('err getting graph data', data);
       });
@@ -131,7 +140,6 @@ module.exports = function (mainApp){
     $scope.showDashboard = function(){
       date = new Date();
       var newDate = date.getMonth()+ "-" + date.getDate()+ "-" + date.getFullYear();
-      console.log(newDate);
       $scope.rightSideUrl = 'views/dashboard';
       $scope.pageTitle = 'Dashboard';
       makeDailyHighLowGraph(238, '1-0-2014', newDate);

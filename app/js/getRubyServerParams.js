@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var dateToAPI = require('./dateToAPIString');
 
-module.exports = function getRubyServerParams (currentFarmer, pid) {
+module.exports = function getRubyServerParams (currentFarmer, pid, res) {
 
   console.log("HITTING INSIDE GET RUBY URL FILE");
 
@@ -9,7 +9,7 @@ module.exports = function getRubyServerParams (currentFarmer, pid) {
     function(e){ return e._id == pid ; });
 
   if (!currentPlanting) {
-    res.end(500, {'error' : 'planting id not valid'});
+    res.send(500, {'error' : 'planting id not valid'});
   }
 
   // Identify date parameters
@@ -17,7 +17,7 @@ module.exports = function getRubyServerParams (currentFarmer, pid) {
   var newDate = new Date(); // sets to current date
   var endDate = dateToAPI(newDate);
   if (!(startDate && endDate)){
-    res.end(500, {'error' : 'invalid date format'});
+    res.send(500, {'error' : 'invalid date format'});
   }
 
   var getURL = 'http://shrouded-falls-4448.herokuapp.com/api/v1/stations?station_nbr=' +

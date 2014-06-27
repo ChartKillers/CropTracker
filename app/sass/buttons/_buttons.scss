@@ -9,4 +9,10 @@
   text-align: center;
   margin: em(30);
   font-weight: bold;
+  &:hover {
+    background-color: shade($color-3, 20%);
+  }
+  &:active {
+    background-color: tint($color-3, 20%);
+  }
 }

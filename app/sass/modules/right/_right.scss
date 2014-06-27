@@ -13,11 +13,17 @@
     width: em(90);
     font-size: em(16);
     padding: em(4);
-    background-color: $color-1;
+    background-color: $color-3;
     border: none;
     box-shadow: none;
     border-radius: 4px;
     color: $white;
+    &:hover{
+      background-color: shade($color-3, 20%);
+    }
+    &:active{
+      background-color: tint($color-3, 20%);
+    }
   }
 
   span {

@@ -1,7 +1,7 @@
-article.graphs.ten.columns
-  figure.gdd-field
-    figcaption Cumulative GDD for {{currentPlanting.fieldName}}
-    a(ng-click="editPlanting()") Edit Planting
-    svg.plantingGraph
-    svg.dailyGddGraph
-  
+h2 Cumulative GDD for {{currentPlanting.fieldName}}
+button(ng-click="editPlanting()") Edit Planting
+  span.fa.fa-edit
+figure.gdd-field
+  svg.plantingGraph
+  svg.dailyGddGraph
+

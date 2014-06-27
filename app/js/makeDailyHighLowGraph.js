@@ -6,7 +6,7 @@ var paintDailyHighLowGraph = require('./paintDailyHighLowGraph');
 
 
 module.exports = function makeDailyHighLowGraph(stationId, startDate, endDate){
-	
+	console.log('111');
 	getDailyHighLow(stationId, startDate, endDate, function (tempJSON) {
 
 		parseDailyHighLowToGraph(tempJSON, function (parsedTempJSON) {

@@ -13,8 +13,6 @@ module.exports = function parseCumGddGraph(gddData, callback) {
 		cumValue.push({x: new Date(startDate + days(i)), y: gddData.cum[i]});
 		dailyValue.push({x: new Date(startDate + days(i)), y: gddData.gdd[i]})
 	}
-	console.log("CUMVALUE");
-	console.log(cumValue);
 	callback([
     {
       values: cumValue,  

@@ -16,3 +16,18 @@ h1, h2, h3, h4 {
   font-weight: bold;
   font-style: italic;
 }
+
+@mixin a-styled {
+  a {
+    color: $color-1;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:active{
+      color: $color-3;
+    }
+    &:visited{
+      color: $color-2;
+    }
+  }
+}

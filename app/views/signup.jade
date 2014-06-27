@@ -1,6 +1,7 @@
 include page-header
 form.eight.columns.offset-by-four.alpha.omega(novalidate)
   fieldset
+    h1 Create an account
     p.error-msg {{postError}}
     p.error-msg(ng-repeat="err in error") {{err}}
     ul
@@ -11,15 +12,15 @@ form.eight.columns.offset-by-four.alpha.omega(novalidate)
       li
         input#company(type="text", name="company", placeholder="Company name", ng-model="user.company")
       li
-        select#location(ng-model="user.defaultCimisId", name="location", list="locations")
-          option(value="") Default CIMIS Station
-          option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
-      li
         input#username(type="email", name="username", placeholder="example@email.com", ng-model="user.email")
       li
         input(type="password", name="password", id="password", placeholder="Password", ng-model="user.password")
       li
         input(type="password", name="password2", id="password2", placeholder="Re-enter your password", ng-model="user.password2")
+      li
+        select#location(ng-model="user.defaultCimisId", name="location", list="locations")
+          option(value="") Default CIMIS Station
+          option(ng-repeat="station in activeStationList | orderBy: 'county'", value="{{station.station_nbr}}") {{station.county + ' County , ' + station.name}}
       li
         button(type="submit" ng-click="signup()") sign up
         p or if you already have an account,{{' '}}

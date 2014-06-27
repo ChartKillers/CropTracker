@@ -50,7 +50,7 @@ mongoose.connect(configDB.url);
 //ROUTES
 
     //DAILY MAX/MIN REQUESTS FROM CLIENT
-require('./api/routes/tempHourStaRoutes')(app, socket);
+require('./api/routes/tempHourStaRoutes')(app);
 
     //NEW ACCOUNTS AND SIGN INS
 require('./api/routes/farmerRoutes')(app, passport, jwtauth.auth);

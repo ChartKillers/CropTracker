@@ -28,7 +28,7 @@ module.exports = function(app, jwtauth) {
         // Run GDD transform logic after data from get request is loaded
         result.on("end", function() {
             tempData = JSON.parse(body);
-            var dateAndGddOutput = gddCalc(tempData, currentPlanting);
+            var dateAndGddOutput = gddCalc(tempData, currentPlanting, req.farmer);
             res.send(dateAndGddOutput);
             //res.send( {date: dateOutput, gdd: gddOutput} );
         });

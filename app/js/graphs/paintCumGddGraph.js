@@ -10,8 +10,7 @@ module.exports = function paintCummGddGraph(cumGddData){
                           
   	
 	
-  	chart.xAxis    
-  	    .axisLabel('Date(Day-Month)')
+  	chart.xAxis
   	    .tickFormat(function(d){return d3.time.format('%d-%b')(new Date(d));});
 	
   	chart.yAxis     

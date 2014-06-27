@@ -8,13 +8,13 @@ article.fieldList.six.columns.alpha
   //- Use ng-show/hide to show this when it's relevant
   section.cropType
     h2 {planting.cropType} Fields
-  //- this sectinon is the Field Label template
-  section.field.row(ng-repeat="planting in farmer.plantings | orderBy: 'plantingDate'", ng-click="showPlanting(planting)")
-    section.field-gdd.two.columns.alpha
-      h3 1234
-      p GDDs
-    section.field-name.four.columns.omega
-      h3 {{planting.fieldName}}
-      p Planted: {{planting.plantingDate | date}}
+    //- this sectinon is the Field Label template
+    section.field.row(ng-repeat="planting in farmer.plantings | orderBy: 'plantingDate'", ng-click="showPlanting(planting)")
+      section.field-gdd
+        h3 1234
+        p GDDs
+      section.field-name
+        h3 {{planting.fieldName}}
+        p Planted: {{planting.plantingDate | date}}
 article.right.ten.columns.omega
   div(ng-include="rightSideUrl")

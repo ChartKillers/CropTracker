@@ -11,19 +11,5 @@
     margin: em(10);
   }
 
-  a {
-    color: $color-1;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:active{
-      color: $color-3;
-    }
-
-    &:visited{
-      color: $color-2;
-    }
-  }
+  @include a-styled;
 }

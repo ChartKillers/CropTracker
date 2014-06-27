@@ -1,13 +1,28 @@
 @import "forms/manifest";
 
 form {
+
+  fieldset {
+    border: 1px solid $alpha-gray;
+    border-radius: 4px;
+    margin-top: em(20);
+  }
+
+  h1 {
+    @extend %display-block;
+    font-size: em($heading-2);
+    text-align: center;
+    line-height: em($heading-1);
+    border-bottom: 1px solid $alpha-gray;
+  }
+
   ul {
     margin-top: em(20);
   }
 
   li {
     margin: em(20) auto;
-    a {
+    p {
       text-align: right;
     }
   }
@@ -26,13 +41,9 @@ form {
     @extend %default-inputs;
   }
 
-  fieldset {
-    border: none;
-  }
-
   button {
     width: em(120);
-    float: right;
+    margin-left: em(360);
     font-size: em(16);
     padding: em(8);
     background-color: $color-2;
@@ -40,5 +51,11 @@ form {
     box-shadow: none;
     border-radius: 4px;
     color: $white;
+  }
+
+  @include a-styled;
+
+  .error-msg {
+    color: $color-3;
   }
 }

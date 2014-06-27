@@ -7,9 +7,10 @@
   }
 
   p {
-
     margin: em(10);
   }
 
-  @include a-styled;
+  a {
+    @include a-styling;
+  }
 }

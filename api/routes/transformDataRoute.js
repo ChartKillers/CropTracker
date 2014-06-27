@@ -17,25 +17,23 @@ module.exports = function(app, jwtauth) {
 
     // Run GET request on the Ruby clean CIMIS server
     http.get(URL, function (result) {
-        console.log(3);
         result.setEncoding('utf8');
         var body = '';
         var tempData = [];
 
-        result.on("data", function(chunk){
-            body += chunk;
-            console.log(4);
-        });
+        if (result.statusCode==200){
+            result.on("data", function(chunk){
+                body += chunk;
+            });
 
-        // Run GDD transform logic after data from get request is loaded
-        result.on("end", function() {
-            console.log(5);
-            tempData = JSON.parse(body);
-            var dateAndGddOutput = gddCalc(tempData, currentPlanting, req.farmer);
-            res.send(dateAndGddOutput);
-            console.log(6);
-            //res.send( {date: dateOutput, gdd: gddOutput} );
-        });
+            // Run GDD transform logic after data from get request is loaded
+            result.on("end", function() {
+                tempData = JSON.parse(body);
+                var dateAndGddOutput = gddCalc(tempData, currentPlanting, req.farmer);
+                res.send(dateAndGddOutput);
+                //res.send( {date: dateOutput, gdd: gddOutput} );
+            });
+        };
     });
   });
 };

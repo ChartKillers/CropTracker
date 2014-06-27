@@ -106,21 +106,23 @@ module.exports = function(app, socket) {
         var body = '';
         var stationsData = [];
 
-        result.on("data", function(chunk){
-            body += chunk;
-        });
+        if (result.statusCode==200){
+          result.on("data", function(chunk){
+              body += chunk;
+          });
 
-        // Run GDD transform logic after data from get request is loaded
-        result.on("end", function() {
-            stationsData = JSON.parse(body);
-            var activeList = [];
-            for(var i = 0; i < stationsData.length; i++) {
-              if (stationsData[i].is_active === true) {
-                activeList.push(stationsData[i]);
+          // Run GDD transform logic after data from get request is loaded
+          result.on("end", function() {
+              stationsData = JSON.parse(body);
+              var activeList = [];
+              for(var i = 0; i < stationsData.length; i++) {
+                if (stationsData[i].is_active === true) {
+                  activeList.push(stationsData[i]);
+                }
               }
-            }
-            res.send(activeList);
-        });
+              res.send(activeList);
+          });
+        }
     });
   });
 

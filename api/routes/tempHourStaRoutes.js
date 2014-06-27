@@ -26,14 +26,18 @@ module.exports = function(app) {
 				var body = '';
 				var tempData = [];
 
-				result.on("data", function(chunk){
-						body += chunk;
-				});
+				if (result.statusCode==200){
+					result.on("data", function(chunk){
+							body += chunk;
+					});
 
-				result.on("end", function() {
-						tempData = JSON.parse(body);
-						res.send(tempData);
-				});
+					result.on("end", function() {
+							tempData = JSON.parse(body);
+							res.send(tempData);
+					});
+				};
+
 		});
+
 	});
 };

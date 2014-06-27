@@ -19,4 +19,6 @@ form.eight.columns.offset-by-one.alpha.omega(novalidate)
         label(for="variety") Variety:
         input#variety(ng-model="planting.cropVariety" type="text", name="variety", placeholder="Popcorn")
       li
+        button#delete(ng-click="deletePlanting()", ng-show="editPlanting" type="submit") Delete
+      li
         button#submit(ng-click="postNewPlanting()", type="submit") Submit

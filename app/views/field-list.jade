@@ -7,7 +7,7 @@ article.fieldList.six.columns.alpha
   //- this section is the Crop Type heading template
   //- Use ng-show/hide to show this when it's relevant
   section.cropType(ng-repeat="(key, value) in farmer.plantings")
-    h2 {{key}}
+    h2 {{capFirst(key)}}
     //- this sectinon is the Field Label template
     section.field.row(ng-repeat="planting in value", ng-click="goToPlantingDetail(planting)")
       section.field-gdd

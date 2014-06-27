@@ -33,6 +33,7 @@ module.exports = function (mainApp){
       var newDate = date.getFullYear() + '-' 
           + date.getMonth() + "-" + date.getDate();
       makeDailyHighLowGraph($scope.farmer.defaultCimisId, '2014-01-01', newDate);
+      getActiveStationList();
     });
 
     //sets title in header
@@ -47,16 +48,6 @@ module.exports = function (mainApp){
     
     //hold data entered into new/edit planting form
     $scope.planting= {};
-
-    //get list of active stations
-    (function () {
-      if ($scope['activeStationList']) {
-        return;
-      }
-      getActiveCimisStations($http, function(data){
-        $scope.activeStationList = data;
-      });
-    })();
 
     //END ITEMS THAT RUN ON PAGE LOAD
     //==============================================
@@ -106,12 +97,12 @@ module.exports = function (mainApp){
 
     //shows graphs and details of selected planting
     $scope.goToPlantingDetail = function(planting){
+      $scope.currentPlanting = planting;
       $scope.rightSideUrl = 'views/plantingGraph';
       getPlantingDailyGDD($http, planting, function(plantingGDDData) {
           makeCumGddGraph(plantingGDDData);
           makeDailyGddGraph(plantingGDDData);
           $scope.plantingGddGraphData = plantingGDDData;
-          $scope.currentPlanting = planting;
       });
     };
 
@@ -125,9 +116,29 @@ module.exports = function (mainApp){
 
     };
 
+    $scope.capFirst = function(word){
+      word = word.split(' ');
+      var ans = '';
+      _.each(word, function(element){
+        element = element.charAt(0).toUpperCase() + element.slice(1);
+        ans += element + ' ';
+      });      
+      return ans;
+    };
 
     //==============================================
     //OTHER FUNCTIONS NOT ON SCOPE
+
+    //get list of active stations
+    function getActiveStationList() {
+      if ($scope['activeStationList']) {
+        return;
+      }
+      
+      getActiveCimisStations($http, function(data){
+        $scope.activeStationList = data;
+      });
+    };
 
     //sets farmer document with transform on plantings
     //so plantings are nested by crop type

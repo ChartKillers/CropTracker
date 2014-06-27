@@ -1,6 +1,7 @@
 article.graphs.ten.columns
   figure.gdd-field
-    figcaption Cumulative GDD for (field name)
+    figcaption Cumulative GDD for {{currentPlanting.fieldName}}
+    a(ng-click="editPlanting()") Edit Planting
     svg.plantingGraph
     svg.dailyGddGraph
   

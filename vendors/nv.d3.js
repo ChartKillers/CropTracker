@@ -8006,15 +8006,15 @@ nv.models.multiBarChart = function() {
     , width = null
     , height = null
     , color = nv.utils.defaultColor()
-    , showControls = true
-    , showLegend = true
+    , showControls = true  
+    , showLegend = false    //changed
     , showXAxis = true
     , showYAxis = true
     , rightAlignYAxis = false
     , reduceXTicks = true // if false a tick will show for every data point
     , staggerLabels = false
     , rotateLabels = 0
-    , tooltips = true
+    , tooltips = true   //Mess with this if stuff is still showing up in wrong spot
     , tooltip = function(key, x, y, e, graph) {
         return '<h3>' + key + '</h3>' +
                '<p>' +  y + ' on ' + x + '</p>'
@@ -8051,7 +8051,7 @@ nv.models.multiBarChart = function() {
   //============================================================
   // Private Variables
   //------------------------------------------------------------
-
+  //make tooltip not be offset KYLE
   var showTooltip = function(e, offsetElement) {
     var left = e.pos[0] + ( offsetElement.offsetLeft || 0 ),
         top = e.pos[1] + ( offsetElement.offsetTop || 0),

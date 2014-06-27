@@ -1,8 +1,9 @@
 'use strict';
 
 var Farmer = require('../models/Farmer');
-
 var dateStringToDate = require('../../app/js/dateStringToDate');
+var gddCalc = require('../../app/js/runGddCalc');
+var getRubyParams = require('../../app/js/getRubyServerParams');
 
 module.exports = function(app, passport, jwtauth) {
 
@@ -16,6 +17,22 @@ module.exports = function(app, passport, jwtauth) {
         res.send(req.farmer);
       });
 
+    });
+
+    app.post('/api/v0_0_1/farmers/plantings/:planting_id', jwtauth, function (req, res) {
+
+      var params = getRubyParams(req.farmer, req.params.planting_id);
+      var X = req.farmer.plantings.indexOf(params[1]);
+
+      req.farmer.plantings.splice(X, 1);
+
+      var newPlanting = req.body;
+
+      req.farmer.plantings.push(newPlanting);
+      req.farmer.save(function(err) {
+        if (err) { return res.send(500, err); }
+        res.send(req.farmer);
+      });
     });
 
     app.post('/api/v0_0_1/farmers', function (req, res) {

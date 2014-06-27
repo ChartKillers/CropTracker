@@ -131,7 +131,5 @@ module.exports = function (mainApp){
       $scope.farmer = farmerDoc;
     };
 
-
-
   }]);
 };

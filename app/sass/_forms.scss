@@ -23,6 +23,7 @@ form {
   li {
     margin: em(20) auto;
     p {
+      margin-top: em(8);
       text-align: right;
     }
   }
@@ -53,9 +54,15 @@ form {
     color: $white;
   }
 
-  @include a-styled;
+  a {
+    @include a-styling;
+  }
 
   .error-msg {
     color: $color-3;
   }
+}
+
+#delete {
+  background-color: $color-3;
 }

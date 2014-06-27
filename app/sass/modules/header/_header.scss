@@ -14,6 +14,10 @@ header {
   span {
     padding-right: em(10);
   }
+
+  nav li {
+    cursor: pointer;
+  }
 }
 
 .account-confirm {

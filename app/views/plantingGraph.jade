@@ -1,7 +1,14 @@
-article.graphs.ten.columns
-  figure.gdd-field
-    figcaption Cumulative GDD for {{currentPlanting.fieldName}}
-    a(ng-click="editPlanting()") Edit Planting
-    svg.plantingGraph
-    svg.dailyGddGraph
-  
+h2 Field info for {{currentPlanting.fieldName}}
+button(ng-click="editPlanting()") Edit
+  span.fa.fa-edit
+p Planting date: {{currentPlanting.plantingDate | date}}
+p CIMIS Station: {{currentPlanting.stationID}}
+p Crop type: {{currentPlanting.cropType}}
+p Variety: {{currentPlanting.variety}}
+figure.gdd-field
+  figcaption Cumulative GDD since {{currentPlanting.plantingDate | date}}
+  svg.plantingGraph
+figure
+  figcaption Daily GDD since {{currentPlanting.plantingDate | date}}
+  svg.dailyGddGraph
+

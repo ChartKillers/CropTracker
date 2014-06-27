@@ -6,9 +6,7 @@ var standardDateToJsDate = require('../standardDateToJsDate');
 
 
 module.exports = function parseDailyHighLowToGraph(dailyHighLowJSON, callback){
-	/*{"_id":"53921d22d6f9ac4ef9f27aa9",
-	"date":"2014-02-01T08:00:00.000Z","stationId":235,
-	"maxTempF":61.8,"minTempF":29.8},*/
+
 	var highTemps = [];
 	var lowTemps = [];
 	var tempData = dailyHighLowJSON;

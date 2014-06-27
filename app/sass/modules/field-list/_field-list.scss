@@ -37,8 +37,12 @@
   border: 1px solid tint($color-2, 20%);
   border-radius: 2px;
   margin-top: em(4);
+  padding-top: em(8);
   &:hover {
     background-color: tint($color-2, 70%);
+  }
+  span {
+    margin: em(20) auto;
   }
 }
 
@@ -49,6 +53,7 @@
 }
 
 .field-name {
-  width: 60%;
+  width: 85%;
+  padding-left: em(24);
   float: left;
 }

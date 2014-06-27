@@ -8,9 +8,10 @@ article.fieldList.six.columns.alpha
     h2 {{capFirst(key)}}
     //- this section is the Field Label template
     section.field.row(ng-repeat="planting in value", ng-click="goToPlantingDetail(planting)")
-      section.field-gdd
-        h3 1234
-        p GDDs
+      //- this section is getting scrapped because it takes too long to calculate GDD
+      //- section.field-gdd
+      //-   h3 1234
+      //-   p GDDs
       section.field-name
         h3 {{planting.fieldName}}
         p Planted: {{planting.plantingDate | date}}

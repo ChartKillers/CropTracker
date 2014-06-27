@@ -120,6 +120,8 @@ module.exports = function (mainApp){
 
     $scope.showPlanting = function(planting){
       $scope.rightSideUrl = 'views/plantingGraph';
+      $scope.pageTitle = planting.fieldName;
+      console.log(planting.cropType);
       $http({
         method: 'GET',
         url: '/api/v0_0_1/daily-cum-gdd/' + planting._id
@@ -140,9 +142,9 @@ module.exports = function (mainApp){
       var newDate = date.getMonth()+ "-" + date.getDate()+ "-" + date.getFullYear();
       $scope.rightSideUrl = 'views/dashboard';
       $scope.pageTitle = 'Dashboard';
-      makeDailyHighLowGraph(235, '1-0-2014', newDate);
+      makeDailyHighLowGraph(238, '1-0-2014', newDate);
     };
-    //calls the above function on page load
+    //executes the above function on page load
     $scope.showDashboard();
   }]);
 };

@@ -14,6 +14,7 @@ module.exports = function paintDailyGddGraph(dailyGddData){
 	
   	chart.yAxis
   	    .axisLabel('GDD')
+        .axisLabelDistance(40)
   	    .tickFormat(d3.format('f'));
 	
   	

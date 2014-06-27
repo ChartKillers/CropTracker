@@ -32,6 +32,9 @@ mainApp.config(['$routeProvider',
       .when('/field-list', {
         templateUrl: '/views/field-list',
         controller: 'FieldListCtrl'
+      })
+      .when('/about-us', {
+        templateUrl: '/views/about'
       });
   }
 ]);

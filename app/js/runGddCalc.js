@@ -1,6 +1,7 @@
-module.exports = function runGddCalc (tempData, currentPlanting) {
+module.exports = function runGddCalc (tempData, currentPlanting, currentFarmer) {
 
-  console.log("HITTING INSIDE GDD CALC FILE");
+  console.log(" ");
+  console.log("Hitting inside GDD CALC for PlantingID: " + currentPlanting._id);
 
   var tMax = 0;
   var tMin = 0;
@@ -10,6 +11,8 @@ module.exports = function runGddCalc (tempData, currentPlanting) {
   var gddOutput = [];
   var gddCum = [];
   var dateOutput = [];
+  var currentDate = new Date(); // sets to current date
+  var farmer = currentFarmer;
 
   for (var k=0; k<tempData.length; k++) {
     dateOutput.push(tempData[k].calendar_date);
@@ -27,11 +30,35 @@ module.exports = function runGddCalc (tempData, currentPlanting) {
       tMin = currentPlanting.gddParameters.minTempF;
     }
     else tMin = currentMin;
+
+    if (currentMax < currentPlanting.gddParameters.minTempF) {
+      tMax = currentPlanting.gddParameters.minTempF;
+    }
+
     gddValue = (tMax + tMin)/2 - currentPlanting.gddParameters.minTempF;
+
+    //DEBUG FOR NEGATIVE GDD VALUES:
+    // if(gddValue < 0) {
+    //   console.log("DATE: " + tempData[k].calendar_date);
+    //   console.log("TMIN: " + tMin);
+    //   console.log("TMAX: " + tMax);
+    //   console.log("tempData[k].daily_max: " + tempData[k].daily_max);
+    //   console.log("currentMax: " + currentMax);
+    //   console.log("ParamMAX: " + currentPlanting.gddParameters.maxTempF);
+    //   console.log("TBASE: " + currentPlanting.gddParameters.minTempF);
+    //   console.log("GDD: " + gddValue);
+    // }
+
     currentCum += gddValue;
     gddOutput.push(gddValue);
     gddCum.push(currentCum);
   }
+
+  var update  = { lastUpdated : currentDate };
+
+
+  //farmer.findByIdAndUpdate(farmer._id, );
+
 
   var output = {date: dateOutput, gdd: gddOutput, cum: gddCum};
   return output;

@@ -38,7 +38,7 @@ module.exports = function runGddCalc (tempData, currentPlanting, currentFarmer) 
     gddValue = (tMax + tMin)/2 - currentPlanting.gddParameters.minTempF;
 
     //DEBUG FOR NEGATIVE GDD VALUES:
-    // if(gddValue < 0) {
+    // if(gddValue > 0) {
     //   console.log("DATE: " + tempData[k].calendar_date);
     //   console.log("TMIN: " + tMin);
     //   console.log("TMAX: " + tMax);
@@ -50,6 +50,7 @@ module.exports = function runGddCalc (tempData, currentPlanting, currentFarmer) 
     // }
 
     currentCum += gddValue;
+    console.log("CUM: " + currentCum);
     gddOutput.push(gddValue);
     gddCum.push(currentCum);
   }
@@ -60,7 +61,7 @@ module.exports = function runGddCalc (tempData, currentPlanting, currentFarmer) 
   //farmer.findByIdAndUpdate(farmer._id, );
 
 
-  var output = {date: dateOutput, gdd: gddOutput, cum: gddCum};
+  var output = {date: dateOutput, gdd: gddOutput.reverse(), cum: gddCum.reverse()};
   return output;
 
 };

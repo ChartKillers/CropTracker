@@ -25,6 +25,10 @@
   }
 }
 
+.highlight {
+  background-color: tint($color-1, 70%) !important; 
+}
+
 .cropType {
   background-color: $color-2;
   padding-left: em(8);

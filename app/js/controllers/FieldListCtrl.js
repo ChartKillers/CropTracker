@@ -6,6 +6,7 @@ var getFarmerData = require('../getFarmerData');
 var getActiveCimisStations = require('../getActiveCimisStations');
 var postNewPlanting = require('../postNewPlanting');
 var getPlantingDailyGDD = require('../getPlantingDailyGDD');
+var JQUERY = require('jquery');
 
 module.exports = function (mainApp){
 
@@ -113,6 +114,7 @@ module.exports = function (mainApp){
     };
 
     //shows graphs and details of selected planting
+
     $scope.goToPlantingDetail = function(planting){
       $scope.currentPlanting = planting;
       $scope.rightSideUrl = 'views/plantingGraph';
@@ -122,6 +124,7 @@ module.exports = function (mainApp){
           makeDailyGddGraph(plantingGDDData);
           $scope.plantingGddGraphData = plantingGDDData;
       });
+      $scope.model = { selected : null };
     };
 
     //return right side to home view

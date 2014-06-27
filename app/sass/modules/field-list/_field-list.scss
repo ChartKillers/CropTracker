@@ -25,9 +25,6 @@
 .cropType {
   background-color: $color-2;
   padding-left: em(8);
-  h2 {
-    margin-bottom: em(4);
-  }
 }
 
 .field {
@@ -36,6 +33,7 @@
   background-color: tint($color-2, 50%);
   border: 1px solid tint($color-2, 20%);
   border-radius: 2px;
+  margin-top: em(4);
 }
 
 .field-gdd {

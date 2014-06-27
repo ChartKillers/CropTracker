@@ -13,11 +13,11 @@ header
           p
             span.fa.fa-info-circle.fa-lg
             | Info
-      li
+      li(ng-show="loggedIn")
         p
           span.fa.fa-gear.fa-lg
           | Settings
-      li(ng-show="!loggedIn" ng-click="logout()")
+      li(ng-hide="loggedIn" ng-click="logout()")
         p
           span.fa.fa-sign-in.fa-lg
           | Log in

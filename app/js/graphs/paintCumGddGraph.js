@@ -6,23 +6,25 @@ module.exports = function paintCummGddGraph(cumGddData){
   	              .transitionDuration(350)  //how fast do you want the lines to transition?
   	              .showLegend(false)       //Show the legend, allowing users to turn on/off line series.
   	              .showYAxis(true)        
-  	              .showXAxis(true);        
+  	              .showXAxis(true);
+                          
   	
 	
-  	chart.xAxis     //Chart x-axis settings
-  	    .axisLabel('Date')
+  	chart.xAxis    
+  	    .axisLabel('Date(Day-Month)')
   	    .tickFormat(function(d){return d3.time.format('%d-%b')(new Date(d));});
 	
-  	chart.yAxis     //Chart y-axis settings
+  	chart.yAxis     
   	    .axisLabel('GDD')
+        .axisLabelDistance(40)
   	    .tickFormat(d3.format('f'));
 	
   	
   	var myData = cumGddData;  
 	
   	d3.select('.plantingGraph')
-        .attr('height', 350)
-        .attr('width', 400)  			    
+        .attr('height', 250)
+        .attr('width', 400)			    
   	    .datum(myData)         
   	    .call(chart);          
 	

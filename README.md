@@ -34,7 +34,7 @@ Farmers want to know the cumulative growing degree days (GDD) of their crops fro
 5. Add up the GDD from planting to present to get the cumulative GDD to present.
 6. Display this graphically by plotting cumulative GDD on Y axis, date on X axis.
 
-## Our MVP (UX??? We werent taught this)
+## Our MVP
 
 1. Farmers can create user accounts.
 2. Farmers can add crop plantings.

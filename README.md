@@ -12,9 +12,6 @@ Kyle Warbis - JavaScript
 Steve Buckley - Ruby  
 Idil Jama - UX
   
-Mike Hair - Rice crop manager. Sills Farms, Inc. Rice advisor.  
-Ed Sills - Owner. Sills Farms, Inc. Corn and Bean advisor.  
-
 ## Short Summary
 
 This web app will allow farmers to enter in crop planting dates and then see a graph of cumulative growing degree days.

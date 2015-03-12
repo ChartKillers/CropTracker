@@ -30,3 +30,5 @@ test/front-end/test-suite.js
 dist
 db
 nvd3/
+
+private

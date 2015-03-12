@@ -5,8 +5,6 @@ var passport = require('passport');
 var consolidate = require('consolidate');
 var path = require('path');
 
-var configDB = require('./config/database.js');
-
 //SERVER SETUP
 var app = express();
 app.use(bodyparser.json());
@@ -35,8 +33,7 @@ require('./api/lib/passport')(passport);
 
 //MONGO
 var mongoose = require('mongoose');
-mongoose.connect(configDB.url);
-
+mongoose.connect(process.env.MONGOLAB_URI || require("./private/database").url);
 
 //ROUTES
 
